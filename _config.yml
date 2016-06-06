@@ -1,0 +1,202 @@
+#
+# This file contains configuration flags to customize your site
+#
+# Name of your site (displayed in the header)
+name: Raspberry Pi and other SBC
+
+author: Manuel Mendes
+#github: mpmendespt
+#
+
+description: "Raspberry Pi and other Single-Board Computers..."
+
+# URL of your avatar or profile pic (you could use your GitHub profile pic)
+avatar: /images/eu_4.jpg
+
+title: Raspberry Pi and other SBC
+
+##############
+gems: ['jekyll-github-metadata']
+#
+repository: mpmendespt/repo-name
+#
+###
+gems: [jekyll-coffeescript, jekyll-watch, jekyll-assets]
+ # This will require each of these gems automatically.
+ #gem install jekyll-coffeescript jekyll-watch jekyll-assets
+# #######################################
+#url: http://mpmendespt.github.io/
+#shorturl:  mpmendespt.github.io
+
+#
+baseurl:  ''
+paginate:  3
+
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+#permalink:         pretty
+# http://dev.mildronize.com/en/guideline-for-upgrading-jekyll-from-2.x-to-3.x/
+# ...................... / :
+permalink:  /:title.html/
+#permalink: /:year/:month/:day/:title
+#permalink: /blog/:year/:month/:day/:title
+#relative_permalinks: false
+
+#
+# Here is a part of _config.yml which is changed in Jekyll 3.
+gems:   [jekyll-paginate, jekyll-gist, redcarpet]
+gems:   [pygments.rb]
+#
+#gems:   ['wdm', '>= 0.1.0']
+# ^^ Here is a part of _config.yml which is changed in Jekyll 3.
+#
+# paginate: 10
+# markdown: rdiscount
+#https://kersulis.github.io/2015/10/31/jekyll-3/
+#..............................
+#markdown: redcarpet  
+#redcarpet:
+#  extensions: ["tables"]
+#highlighter: pygments
+#............................
+#markdown: rdiscount
+#permalink: pretty
+#highlighter: pygments
+#............................
+#redcarpet:
+#  extensions:  ["with_toc_data"]
+#highlighter: rouge
+#highlighter: pygments
+#...........................
+highlighter: pygments
+#markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "tables", "with_toc_data"]
+#.............................
+# Build settings ...........................
+#highlighter: rouge
+markdown: kramdown
+#kramdown:
+#  input: GFM
+#  auto_ids: true
+#  syntax_highlighter: rouge
+# Build settings
+
+excerpt_separator: ""
+
+###############################
+safe: true
+auto: false 
+
+exclude: ["*.Rmd"]
+
+#############################################
+
+# This is the list of pages to incldue in the header of the website.
+pages_list:
+  Home: '/'    
+  About: '/about'
+  Archive: '/archive'
+  Links: '/links'
+
+
+# The release of Jekyll Now that you're using
+version: v3.1.6
+
+# URL of your avatar or profile pic (you could use your GitHub profile pic)
+avatar: https://raw.githubusercontent.com/mpmendespt/mpmendespt.github.io/master/images/HPIM7262.jpg
+  
+# Gems
+gems: [jekyll-paginate]
+  
+  
+#
+# Flags below are optional
+#
+# Includes an icon in the footer for each username you enter
+footer-links:
+  facebook: mpmendespt
+  flickr: 
+  github: mpmendespt
+  instagram: 
+  linkedin: 
+  pinterest: 
+  dribbble: 
+  email: mpmendespt@yahoo.com
+  #rss: Y # just type anything here for a working RSS icon, make sure you set the "url" above!
+  twitter: mpmendespt
+  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
+
+# Your disqus shortname, entering this will enable commenting on posts
+# disqus: mpmendespt
+
+# Settings for comments helper
+# Set 'provider' to the comment provider you want to use.
+# Set 'provider' to false to turn commenting off globally.
+#
+comments :
+  provider : disqus
+  disqus : 
+    short_name : mpmendespt
+#  livefyre :
+#    site_id : 123
+#  intensedebate :
+#    account : 123abc
+#  facebook :
+#    appid : 123
+#    num_posts: 5
+#    width: 580
+#    colorscheme: light
+
+# The production_url is only used when full-domain names are needed
+# such as sitemap.txt 
+# Most places will/should use BASE_PATH to make the urls
+#
+# If you have set a CNAME (pages.github.com) set your custom domain here.
+# Else if you are pushing to username.github.io, replace with your username.
+# Finally if you are pushing to a GitHub project page, include the project name at the end.
+#
+#production_url : http://mpmendespt.github.io
+
+# All Jekyll-Bootstrap specific configurations are namespaced into this hash
+#
+JB :
+  version : 0.3.0
+
+  # All links will be namespaced by BASE_PATH if defined.
+  # Links in your website should always be prefixed with {{BASE_PATH}}
+  # however this value will be dynamically changed depending on your deployment situation.
+  #
+  # CNAME (http://yourcustomdomain.com)
+  #   DO NOT SET BASE_PATH 
+  #   (urls will be prefixed with "/" and work relatively)
+  #
+  # GitHub Pages (http://username.github.io)
+  #   DO NOT SET BASE_PATH 
+  #   (urls will be prefixed with "/" and work relatively)
+  #
+  # GitHub Project Pages (http://username.github.io/project-name)
+  #
+  #   A GitHub Project site exists in the `gh-pages` branch of one of your repositories.
+  #  REQUIRED! Set BASE_PATH to: http://username.github.io/project-name
+  #
+  # CAUTION:
+  #   - When in Localhost, your site will run from root "/" regardless of BASE_PATH
+  #   - Only the following values are falsy: ["", null, false]
+  #   - When setting BASE_PATH it must be a valid url.
+  #     This means always setting the protocol (http|https) or prefixing with "/"
+  BASE_PATH : false
+
+  # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
+  # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
+  #
+  # Override this by defining an absolute path to assets here.
+  # ex: 
+  #   http://s3.amazonaws.com/yoursite/themes/watermelon
+  #   /assets
+  #
+  ASSET_PATH : false
+
+  
+  
