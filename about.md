@@ -10,7 +10,7 @@ Radio communications HF, VHF, MW (microwave); Multiplexing (TDM and PCM); Optica
 
 Also, I am an autodidact with an interest in many study areas.
 
-This blog is a test space for anything related to Raspberry Pi and other single-board computers (SBC).  </br>
+This blog is a test space for anything related to Raspberry Pi and other single-board computers (SBC).    
 And as a test space it´s running on a small Raspberry Pi Cluster (now as start project with only 3 Raspberry Pi’s).
 
 
