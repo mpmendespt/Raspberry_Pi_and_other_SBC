@@ -163,6 +163,136 @@
   
   <div class="post">
     <h1 class="post-title">
+      <!-- <a href="//Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/">  -->
+	  <a href="/Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/">
+        Dynamic DNS on Raspberry Pi
+      </a>
+    </h1>
+
+    <span class="post-date">03 Jun 2016</span>
+
+    <h2 id="how-are-web-requests-processed">How are web requests processed?</h2>
+
+<p>When a user visits a web site, they use the site’s domain name to
+address the site. Their browser then sends a request to a DNS server to
+translate the domain name into an IP address. Once the browser has the
+site’s IP address, it sends a request to the server.</p>
+
+<p>There are two problems with this:</p>
+
+<ul>
+  <li>1. the external IP address of your home network can change at any time,
+and</li>
+  <li>2. your Pi is behind a firewall and can’t be accessed directly from
+the internet.</li>
+</ul>
+
+<h2 id="dynamic-dns">Dynamic DNS</h2>
+
+<p>The first problem can be solved by using a <a href="http://en.wikipedia.org/wiki/Dynamic_DNS">dynamic
+DNS</a> service. These services
+act as DNS servers that update automactically if your IP address
+changes. There are numerous dynamic DNS services available. Most of them
+provide a free service where you can choose a subdomain name.</p>
+
+<p>You need to install a small piece of software on your Pi. This software
+is supplied by your dynamic DNS provider, and it monitors the external
+address of your router. If that address changes, the software sends a
+message to the dynamic DNS server to update its records.</p>
+
+<h2 id="port-forwarding">Port forwarding</h2>
+
+<p>When a user on the internet wants to see your web site, their browser
+can get the IP address of your home network from your dynamic DNS
+service. But requests still need to find a way through your router’s
+firewall.</p>
+
+<p>By default web servers listen for connections on port 80. When a user’s
+request to see a page on your site reaches your router, the router must
+forward that request to your Pi’s IP address. You don’t want to forward
+all incoming traffic to your Pi, just the traffic for the web server
+which is on port 80. Most routers allow you to set up port forwarding so
+that any traffic on port 80 will be sent to your Pi.</p>
+
+<h3 id="to-create-a-domain-name-that-always-points-to-your-home-ip">To create a domain name that always points to your home ip:</h3>
+
+<p>Goto <a href="http://www.noip.com/"><strong>www.noip.com</strong></a><a href="http://www.noip.com/">
+</a>&gt; <strong>create an account</strong></p>
+
+<ol>
+  <li>Sign in to your noip account &gt; goto <strong>Add Host</strong>&gt; <strong>create
+your host name with one of the offered domain
+names</strong> (mpmendespt.ddns.net)</li>
+  <li>Keep the <strong>Host type</strong> as <strong>DNS Host A</strong> ( If your ISP blocks Port
+80 for example, and you’re trying to run a webserver or other
+service on port 80, then you can choose Port 80 Redirect (at that
+point you’ll be asked to specify the port to use for
+the redirection)</li>
+  <li>In the field marked <strong>IP Address</strong>: you should already see your
+current IP address.</li>
+  <li>The next two options aren’t used for a basic account setup so leave
+them as they are.</li>
+  <li>click the “<strong>Add Host</strong>” button at the bottom of the page to
+save it.</li>
+</ol>
+
+<h3 id="install-no-ips-dynamic-update-client">Install No-IP’s Dynamic Update Client</h3>
+
+<p>Create a directory for the client software:</p>
+
+<p><strong>**mkdir /home/pi/noip</strong>**</p>
+
+<p>Download the client software:</p>
+
+<p><strong>**wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz</strong>**</p>
+
+<p>Extract the archive:</p>
+
+<p><strong>**tar zxvf noip-duc-linux.tar.gz</strong>**</p>
+
+<p>Compile and install:</p>
+
+<p><strong>**sudo make</strong>**</p>
+
+<p><strong>**sudo make install</strong>**</p>
+
+<p>After typing “sudo make install” you will be prompted to login with your
+No-IP account username and password.</p>
+
+<p>After logging into the DUC answer the questions to proceed. When asked
+how often you want the update to happen you <strong>must</strong> choose 5 or more.
+The interval is listed in minutes, if you choose 5 the update interval
+will be 5 minutes. If you choose 30 the interval will be 30 minutes.</p>
+
+<p>Please enter an update interval:[30] 10</p>
+
+<p>Do you wish to run something at successful update?[N] (y/N) \^M</p>
+
+<p>New configuration file ‘/tmp/no-ip2.conf’ created.</p>
+
+<p>mv /tmp/no-ip2.conf /usr/local/etc/no-ip2.conf</p>
+
+<p>The Dynamic Update client is started by running:</p>
+
+<p><strong>sudo /usr/local/bin/noip2</strong></p>
+
+<p>To confirm that the service is working properly you can run the
+following command:</p>
+
+<p><strong>sudo noip2 -S</strong></p>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="http://raspberrywebserver.com/serveradmin/get-your-raspberry-pi-web-site-on-line.html">http://raspberrywebserver.com/serveradmin/get-your-raspberry-pi-web-site-on-line.html</a></li>
+  <li><a href="http://www.techjawab.com/2013/06/setup-dynamic-dns-dyndns-for-free-on.html">http://www.techjawab.com/2013/06/setup-dynamic-dns-dyndns-for-free-on.html</a></li>
+  <li><a href="http://projpi.com/raspberry-pi-tips-and-hacks/raspberry-pi-2-on-dynamic-ip-and-noip/">http://projpi.com/raspberry-pi-tips-and-hacks/raspberry-pi-2-on-dynamic-ip-and-noip/</a></li>
+</ul>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <!-- <a href="//From-Markdown-to-.odt-and-vice-versa.html/">  -->
 	  <a href="/From-Markdown-to-.odt-and-vice-versa.html/">
         From Markdown to .odt and vice-versa
@@ -429,28 +559,6 @@ file. For example, if you previously had this:</p>
 
   </div>
   
-  <div class="post">
-    <h1 class="post-title">
-      <!-- <a href="//whats-jekyll.html/">  -->
-	  <a href="/whats-jekyll.html/">
-        What's Jekyll?
-      </a>
-    </h1>
-
-    <span class="post-date">27 May 2016</span>
-
-    <p><a href="http://jekyllrb.com">Jekyll</a> is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From <a href="https://github.com/mojombo/jekyll/blob/master/README.markdown">the project’s readme</a>:</p>
-
-<blockquote>
-  <p>Jekyll is a simple, blog aware, static site generator. It takes a template directory […] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.</p>
-</blockquote>
-
-<p>It’s an immensely useful tool and one we encourage you to use here with Hyde.</p>
-
-<p>Find out more by <a href="https://github.com/mojombo/jekyll">visiting the project on GitHub</a>.</p>
-
-  </div>
-  
 </div>
 
 <div class="pagination">
@@ -516,10 +624,10 @@ file. For example, if you previously had this:</p>
 	<div align="center">
 	<!-- Teste...1  -->
 	<!-- ********   -->
- <!-- Start of StatCounter Code  -->
+	<!-- Start of StatCounter Code  -->
 	<script type="text/javascript">
 	var sc_project=10999418; 
-	var sc_invisible=0; 
+	var sc_invisible=1; 
 	var sc_security="7abd5ec8"; 
 	var scJsHost = (("https:" == document.location.protocol) ?
 	"https://secure." : "http://www.");
@@ -527,14 +635,13 @@ file. For example, if you previously had this:</p>
 	scJsHost+
 	"statcounter.com/counter/counter.js'></"+"script>");
 	</script>
-	<noscript>
-	<div class="statcounter"><a title="shopify analytics tool" 
-	href="http://statcounter.com/shopify/"
+	<noscript><div class="statcounter"><a title="shopify site
+	analytics" href="http://statcounter.com/shopify/"
 	target="_blank"><img class="statcounter"
-	src="//c.statcounter.com/10999418/0/7abd5ec8/0/"
-	alt="shopify analytics tool"></a></div></noscript>
+	src="//c.statcounter.com/10999418/0/7abd5ec8/1/"
+	alt="shopify site analytics"></a></div></noscript>
 	<!-- End of StatCounter Code for Default Guide -->
-	<a href="http://statcounter.com/p10999418/?guest=1" target="_blank">View My
+	<a href="http://statcounter.com/p10999418/?guest=1">View My
 	Stats</a>
 	<!-- End of StatCounter Code  -->
 	<!-- ****  ****   -->

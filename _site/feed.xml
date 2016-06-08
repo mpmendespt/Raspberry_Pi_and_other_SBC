@@ -7,6 +7,131 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Dynamic DNS on Raspberry Pi</title>
+        <description>&lt;h2 id=&quot;how-are-web-requests-processed&quot;&gt;How are web requests processed?&lt;/h2&gt;
+
+&lt;p&gt;When a user visits a web site, they use the site’s domain name to
+address the site. Their browser then sends a request to a DNS server to
+translate the domain name into an IP address. Once the browser has the
+site’s IP address, it sends a request to the server.&lt;/p&gt;
+
+&lt;p&gt;There are two problems with this:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1. the external IP address of your home network can change at any time,
+and&lt;/li&gt;
+  &lt;li&gt;2. your Pi is behind a firewall and can’t be accessed directly from
+the internet.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;dynamic-dns&quot;&gt;Dynamic DNS&lt;/h2&gt;
+
+&lt;p&gt;The first problem can be solved by using a &lt;a href=&quot;http://en.wikipedia.org/wiki/Dynamic_DNS&quot;&gt;dynamic
+DNS&lt;/a&gt; service. These services
+act as DNS servers that update automactically if your IP address
+changes. There are numerous dynamic DNS services available. Most of them
+provide a free service where you can choose a subdomain name.&lt;/p&gt;
+
+&lt;p&gt;You need to install a small piece of software on your Pi. This software
+is supplied by your dynamic DNS provider, and it monitors the external
+address of your router. If that address changes, the software sends a
+message to the dynamic DNS server to update its records.&lt;/p&gt;
+
+&lt;h2 id=&quot;port-forwarding&quot;&gt;Port forwarding&lt;/h2&gt;
+
+&lt;p&gt;When a user on the internet wants to see your web site, their browser
+can get the IP address of your home network from your dynamic DNS
+service. But requests still need to find a way through your router’s
+firewall.&lt;/p&gt;
+
+&lt;p&gt;By default web servers listen for connections on port 80. When a user’s
+request to see a page on your site reaches your router, the router must
+forward that request to your Pi’s IP address. You don’t want to forward
+all incoming traffic to your Pi, just the traffic for the web server
+which is on port 80. Most routers allow you to set up port forwarding so
+that any traffic on port 80 will be sent to your Pi.&lt;/p&gt;
+
+&lt;h3 id=&quot;to-create-a-domain-name-that-always-points-to-your-home-ip&quot;&gt;To create a domain name that always points to your home ip:&lt;/h3&gt;
+
+&lt;p&gt;Goto &lt;a href=&quot;http://www.noip.com/&quot;&gt;&lt;strong&gt;www.noip.com&lt;/strong&gt;&lt;/a&gt;&lt;a href=&quot;http://www.noip.com/&quot;&gt;
+&lt;/a&gt;&amp;gt; &lt;strong&gt;create an account&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Sign in to your noip account &amp;gt; goto &lt;strong&gt;Add Host&lt;/strong&gt;&amp;gt; &lt;strong&gt;create
+your host name with one of the offered domain
+names&lt;/strong&gt; (mpmendespt.ddns.net)&lt;/li&gt;
+  &lt;li&gt;Keep the &lt;strong&gt;Host type&lt;/strong&gt; as &lt;strong&gt;DNS Host A&lt;/strong&gt; ( If your ISP blocks Port
+80 for example, and you’re trying to run a webserver or other
+service on port 80, then you can choose Port 80 Redirect (at that
+point you’ll be asked to specify the port to use for
+the redirection)&lt;/li&gt;
+  &lt;li&gt;In the field marked &lt;strong&gt;IP Address&lt;/strong&gt;: you should already see your
+current IP address.&lt;/li&gt;
+  &lt;li&gt;The next two options aren’t used for a basic account setup so leave
+them as they are.&lt;/li&gt;
+  &lt;li&gt;click the “&lt;strong&gt;Add Host&lt;/strong&gt;” button at the bottom of the page to
+save it.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;install-no-ips-dynamic-update-client&quot;&gt;Install No-IP’s Dynamic Update Client&lt;/h3&gt;
+
+&lt;p&gt;Create a directory for the client software:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;**mkdir /home/pi/noip&lt;/strong&gt;**&lt;/p&gt;
+
+&lt;p&gt;Download the client software:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;**wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz&lt;/strong&gt;**&lt;/p&gt;
+
+&lt;p&gt;Extract the archive:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;**tar zxvf noip-duc-linux.tar.gz&lt;/strong&gt;**&lt;/p&gt;
+
+&lt;p&gt;Compile and install:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;**sudo make&lt;/strong&gt;**&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;**sudo make install&lt;/strong&gt;**&lt;/p&gt;
+
+&lt;p&gt;After typing “sudo make install” you will be prompted to login with your
+No-IP account username and password.&lt;/p&gt;
+
+&lt;p&gt;After logging into the DUC answer the questions to proceed. When asked
+how often you want the update to happen you &lt;strong&gt;must&lt;/strong&gt; choose 5 or more.
+The interval is listed in minutes, if you choose 5 the update interval
+will be 5 minutes. If you choose 30 the interval will be 30 minutes.&lt;/p&gt;
+
+&lt;p&gt;Please enter an update interval:[30] 10&lt;/p&gt;
+
+&lt;p&gt;Do you wish to run something at successful update?[N] (y/N) \^M&lt;/p&gt;
+
+&lt;p&gt;New configuration file ‘/tmp/no-ip2.conf’ created.&lt;/p&gt;
+
+&lt;p&gt;mv /tmp/no-ip2.conf /usr/local/etc/no-ip2.conf&lt;/p&gt;
+
+&lt;p&gt;The Dynamic Update client is started by running:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;sudo /usr/local/bin/noip2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To confirm that the service is working properly you can run the
+following command:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;sudo noip2 -S&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://raspberrywebserver.com/serveradmin/get-your-raspberry-pi-web-site-on-line.html&quot;&gt;http://raspberrywebserver.com/serveradmin/get-your-raspberry-pi-web-site-on-line.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.techjawab.com/2013/06/setup-dynamic-dns-dyndns-for-free-on.html&quot;&gt;http://www.techjawab.com/2013/06/setup-dynamic-dns-dyndns-for-free-on.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://projpi.com/raspberry-pi-tips-and-hacks/raspberry-pi-2-on-dynamic-ip-and-noip/&quot;&gt;http://projpi.com/raspberry-pi-tips-and-hacks/raspberry-pi-2-on-dynamic-ip-and-noip/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 03 Jun 2016 00:00:00 +0100</pubDate>
+        <link>/Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/</link>
+        <guid isPermaLink="true">/Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/</guid>
+      </item>
+    
+      <item>
         <title>From Markdown to .odt and vice-versa</title>
         <description>&lt;p&gt;I wanto to convert complex documents for Markdown so they can be used
 here &lt;strong&gt;to write this blog&lt;/strong&gt;. There are lots of ways, but i choose the following

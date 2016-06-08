@@ -11,7 +11,7 @@
 
   <title>
     
-      404: Page not found &middot; Raspberry Pi and other SBC
+      Dynamic DNS on Raspberry Pi &middot; Raspberry Pi and other SBC
     
   </title>
    
@@ -159,9 +159,187 @@
 			</div> <!--   row  -->
 			<div class="row">		  
 				<div class="container content">
-				  <div class="page">
-  <h1 class="page-title">404: Page not found</h1>
-  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="/">Head back home</a> to try finding it again.</p>
+				  <div class="post">
+  <h1 class="post-title">Dynamic DNS on Raspberry Pi</h1>
+  <span class="post-date">03 Jun 2016</span>
+  <h2 id="how-are-web-requests-processed">How are web requests processed?</h2>
+
+<p>When a user visits a web site, they use the site’s domain name to
+address the site. Their browser then sends a request to a DNS server to
+translate the domain name into an IP address. Once the browser has the
+site’s IP address, it sends a request to the server.</p>
+
+<p>There are two problems with this:</p>
+
+<ul>
+  <li>1. the external IP address of your home network can change at any time,
+and</li>
+  <li>2. your Pi is behind a firewall and can’t be accessed directly from
+the internet.</li>
+</ul>
+
+<h2 id="dynamic-dns">Dynamic DNS</h2>
+
+<p>The first problem can be solved by using a <a href="http://en.wikipedia.org/wiki/Dynamic_DNS">dynamic
+DNS</a> service. These services
+act as DNS servers that update automactically if your IP address
+changes. There are numerous dynamic DNS services available. Most of them
+provide a free service where you can choose a subdomain name.</p>
+
+<p>You need to install a small piece of software on your Pi. This software
+is supplied by your dynamic DNS provider, and it monitors the external
+address of your router. If that address changes, the software sends a
+message to the dynamic DNS server to update its records.</p>
+
+<h2 id="port-forwarding">Port forwarding</h2>
+
+<p>When a user on the internet wants to see your web site, their browser
+can get the IP address of your home network from your dynamic DNS
+service. But requests still need to find a way through your router’s
+firewall.</p>
+
+<p>By default web servers listen for connections on port 80. When a user’s
+request to see a page on your site reaches your router, the router must
+forward that request to your Pi’s IP address. You don’t want to forward
+all incoming traffic to your Pi, just the traffic for the web server
+which is on port 80. Most routers allow you to set up port forwarding so
+that any traffic on port 80 will be sent to your Pi.</p>
+
+<h3 id="to-create-a-domain-name-that-always-points-to-your-home-ip">To create a domain name that always points to your home ip:</h3>
+
+<p>Goto <a href="http://www.noip.com/"><strong>www.noip.com</strong></a><a href="http://www.noip.com/">
+</a>&gt; <strong>create an account</strong></p>
+
+<ol>
+  <li>Sign in to your noip account &gt; goto <strong>Add Host</strong>&gt; <strong>create
+your host name with one of the offered domain
+names</strong> (mpmendespt.ddns.net)</li>
+  <li>Keep the <strong>Host type</strong> as <strong>DNS Host A</strong> ( If your ISP blocks Port
+80 for example, and you’re trying to run a webserver or other
+service on port 80, then you can choose Port 80 Redirect (at that
+point you’ll be asked to specify the port to use for
+the redirection)</li>
+  <li>In the field marked <strong>IP Address</strong>: you should already see your
+current IP address.</li>
+  <li>The next two options aren’t used for a basic account setup so leave
+them as they are.</li>
+  <li>click the “<strong>Add Host</strong>” button at the bottom of the page to
+save it.</li>
+</ol>
+
+<h3 id="install-no-ips-dynamic-update-client">Install No-IP’s Dynamic Update Client</h3>
+
+<p>Create a directory for the client software:</p>
+
+<p><strong>**mkdir /home/pi/noip</strong>**</p>
+
+<p>Download the client software:</p>
+
+<p><strong>**wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz</strong>**</p>
+
+<p>Extract the archive:</p>
+
+<p><strong>**tar zxvf noip-duc-linux.tar.gz</strong>**</p>
+
+<p>Compile and install:</p>
+
+<p><strong>**sudo make</strong>**</p>
+
+<p><strong>**sudo make install</strong>**</p>
+
+<p>After typing “sudo make install” you will be prompted to login with your
+No-IP account username and password.</p>
+
+<p>After logging into the DUC answer the questions to proceed. When asked
+how often you want the update to happen you <strong>must</strong> choose 5 or more.
+The interval is listed in minutes, if you choose 5 the update interval
+will be 5 minutes. If you choose 30 the interval will be 30 minutes.</p>
+
+<p>Please enter an update interval:[30] 10</p>
+
+<p>Do you wish to run something at successful update?[N] (y/N) \^M</p>
+
+<p>New configuration file ‘/tmp/no-ip2.conf’ created.</p>
+
+<p>mv /tmp/no-ip2.conf /usr/local/etc/no-ip2.conf</p>
+
+<p>The Dynamic Update client is started by running:</p>
+
+<p><strong>sudo /usr/local/bin/noip2</strong></p>
+
+<p>To confirm that the service is working properly you can run the
+following command:</p>
+
+<p><strong>sudo noip2 -S</strong></p>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="http://raspberrywebserver.com/serveradmin/get-your-raspberry-pi-web-site-on-line.html">http://raspberrywebserver.com/serveradmin/get-your-raspberry-pi-web-site-on-line.html</a></li>
+  <li><a href="http://www.techjawab.com/2013/06/setup-dynamic-dns-dyndns-for-free-on.html">http://www.techjawab.com/2013/06/setup-dynamic-dns-dyndns-for-free-on.html</a></li>
+  <li><a href="http://projpi.com/raspberry-pi-tips-and-hacks/raspberry-pi-2-on-dynamic-ip-and-noip/">http://projpi.com/raspberry-pi-tips-and-hacks/raspberry-pi-2-on-dynamic-ip-and-noip/</a></li>
+</ul>
+
+  <!--  twitter  -->
+  If you liked this post, you can
+<a href="https://twitter.com/intent/tweet?url=/Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/&text=Dynamic DNS on Raspberry Pi&via=mpmendespt" 
+   target="_blank">
+  share it with your followers</a> 
+or 
+<a href="https://twitter.com/mpmendespt">
+  follow me on Twitter</a>!
+  </br></br>
+  <!-- Post comments -->
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'mpmendespt'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  <!--  **************  -->
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/From-Markdown-to-.odt-and-vice-versa.html/">
+            From Markdown to .odt and vice-versa
+            <small>29 May 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/GitHub-Pages-now-faster-and-simpler.html/">
+            GitHub Pages now faster and simpler!
+            <small>28 May 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/whats-jekyll.html/">
+            What's Jekyll?
+            <small>27 May 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
 </div>
 
 				  
