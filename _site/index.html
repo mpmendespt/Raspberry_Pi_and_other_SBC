@@ -240,21 +240,31 @@ save it.</li>
 
 <p>Create a directory for the client software:</p>
 
-<p><strong>mkdir /home/pi/noip</strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>mkdir /home/pi/noip
+</code></pre>
+</div>
 
 <p>Download the client software:</p>
 
-<p><strong>wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz</strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz
+</code></pre>
+</div>
 
 <p>Extract the archive:</p>
 
-<p><strong>tar zxvf noip-duc-linux.tar.gz</strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>tar zxvf noip-duc-linux.tar.gz
+</code></pre>
+</div>
 
 <p>Compile and install:</p>
 
-<p><strong>sudo make</strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo make
+</code></pre>
+</div>
 
-<p><strong>sudo make install</strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo make install
+</code></pre>
+</div>
 
 <p>After typing “sudo make install” you will be prompted to login with your
 No-IP account username and password.</p>
@@ -270,16 +280,20 @@ will be 5 minutes. If you choose 30 the interval will be 30 minutes.</p>
 
 <p>New configuration file ‘/tmp/no-ip2.conf’ created.</p>
 
-<p>mv /tmp/no-ip2.conf /usr/local/etc/no-ip2.conf</p>
+<p><strong>mv /tmp/no-ip2.conf /usr/local/etc/no-ip2.conf</strong></p>
 
 <p>The Dynamic Update client is started by running:</p>
 
-<p><strong>sudo /usr/local/bin/noip2</strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo /usr/local/bin/noip2
+</code></pre>
+</div>
 
 <p>To confirm that the service is working properly you can run the
 following command:</p>
 
-<p><strong>sudo noip2 -S</strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo noip2 -S
+</code></pre>
+</div>
 
 <h3 id="references">References</h3>
 
