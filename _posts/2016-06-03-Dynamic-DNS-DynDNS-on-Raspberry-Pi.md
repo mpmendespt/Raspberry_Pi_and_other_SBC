@@ -72,21 +72,21 @@ Goto [**www.noip.com**](http://www.noip.com/)[
 
 Create a directory for the client software:
 
-****mkdir /home/pi/noip****
+**mkdir /home/pi/noip**
 
 Download the client software:
 
-****wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz****
+**wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz**
 
 Extract the archive:
 
-****tar zxvf noip-duc-linux.tar.gz****
+**tar zxvf noip-duc-linux.tar.gz**
 
 Compile and install:
 
-****sudo make****
+**sudo make**
 
-****sudo make install****
+**sudo make install**
 
 After typing “sudo make install” you will be prompted to login with your
 No-IP account username and password.
