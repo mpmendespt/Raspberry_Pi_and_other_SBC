@@ -72,21 +72,32 @@ Goto [**www.noip.com**](http://www.noip.com/)[
 
 Create a directory for the client software:
 
-**mkdir /home/pi/noip**
+```
+mkdir /home/pi/noip
+```
 
 Download the client software:
 
-**wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz**
+```
+wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz
+```
+
 
 Extract the archive:
 
-**tar zxvf noip-duc-linux.tar.gz**
+```
+tar zxvf noip-duc-linux.tar.gz
+```
 
 Compile and install:
 
-**sudo make**
+```
+sudo make
+```
 
-**sudo make install**
+```
+sudo make install
+```
 
 After typing “sudo make install” you will be prompted to login with your
 No-IP account username and password.
@@ -102,16 +113,20 @@ Do you wish to run something at successful update?\[N\] (y/N) \^M
 
 New configuration file '/tmp/no-ip2.conf' created.
 
-mv /tmp/no-ip2.conf /usr/local/etc/no-ip2.conf
+**mv /tmp/no-ip2.conf /usr/local/etc/no-ip2.conf**
 
 The Dynamic Update client is started by running:
 
-**sudo /usr/local/bin/noip2**
+```
+sudo /usr/local/bin/noip2
+```
 
 To confirm that the service is working properly you can run the
 following command:
 
-**sudo noip2 -S**
+```
+sudo noip2 -S
+```
 
 ### References 
 
