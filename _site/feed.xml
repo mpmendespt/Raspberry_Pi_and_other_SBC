@@ -3,8 +3,8 @@
   <channel>
     <title>Raspberry Pi and other SBC</title>
     <description>Raspberry Pi and other Single-Board Computers...</description>
-    <link></link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://mpmendespt.ddns.net/</link>
+    <atom:link href="http://mpmendespt.ddns.net//feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>Dynamic DNS on Raspberry Pi</title>
@@ -141,8 +141,8 @@ following command:&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Fri, 03 Jun 2016 00:00:00 +0100</pubDate>
-        <link>/Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/</link>
-        <guid isPermaLink="true">/Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/</guid>
+        <link>http://mpmendespt.ddns.net//Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/</link>
+        <guid isPermaLink="true">http://mpmendespt.ddns.net//Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/</guid>
       </item>
     
       <item>
@@ -304,8 +304,8 @@ document, use the &lt;strong&gt;-s&lt;/strong&gt; or &lt;strong&gt;&lt;em&gt;–
 &lt;/div&gt;
 </description>
         <pubDate>Sun, 29 May 2016 00:00:00 +0100</pubDate>
-        <link>/From-Markdown-to-.odt-and-vice-versa.html/</link>
-        <guid isPermaLink="true">/From-Markdown-to-.odt-and-vice-versa.html/</guid>
+        <link>http://mpmendespt.ddns.net//From-Markdown-to-.odt-and-vice-versa.html/</link>
+        <guid isPermaLink="true">http://mpmendespt.ddns.net//From-Markdown-to-.odt-and-vice-versa.html/</guid>
       </item>
     
       <item>
@@ -408,8 +408,8 @@ file. For example, if you previously had this:&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 28 May 2016 00:00:00 +0100</pubDate>
-        <link>/GitHub-Pages-now-faster-and-simpler.html/</link>
-        <guid isPermaLink="true">/GitHub-Pages-now-faster-and-simpler.html/</guid>
+        <link>http://mpmendespt.ddns.net//GitHub-Pages-now-faster-and-simpler.html/</link>
+        <guid isPermaLink="true">http://mpmendespt.ddns.net//GitHub-Pages-now-faster-and-simpler.html/</guid>
       </item>
     
       <item>
@@ -425,8 +425,8 @@ file. For example, if you previously had this:&lt;/p&gt;
 &lt;p&gt;Find out more by &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Fri, 27 May 2016 00:00:00 +0100</pubDate>
-        <link>/whats-jekyll.html/</link>
-        <guid isPermaLink="true">/whats-jekyll.html/</guid>
+        <link>http://mpmendespt.ddns.net//whats-jekyll.html/</link>
+        <guid isPermaLink="true">http://mpmendespt.ddns.net//whats-jekyll.html/</guid>
       </item>
     
       <item>
@@ -476,8 +476,8 @@ file. For example, if you previously had this:&lt;/p&gt;
 
 </description>
         <pubDate>Thu, 26 May 2016 00:00:00 +0100</pubDate>
-        <link>/welcome-to-jekyll.html/</link>
-        <guid isPermaLink="true">/welcome-to-jekyll.html/</guid>
+        <link>http://mpmendespt.ddns.net//welcome-to-jekyll.html/</link>
+        <guid isPermaLink="true">http://mpmendespt.ddns.net//welcome-to-jekyll.html/</guid>
       </item>
     
       <item>
@@ -489,8 +489,8 @@ file. For example, if you previously had this:&lt;/p&gt;
 &lt;p&gt;The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll Now repository&lt;/a&gt; on GitHub.&lt;/p&gt;
 </description>
         <pubDate>Wed, 25 May 2016 00:00:00 +0100</pubDate>
-        <link>/Hello-World.html/</link>
-        <guid isPermaLink="true">/Hello-World.html/</guid>
+        <link>http://mpmendespt.ddns.net//Hello-World.html/</link>
+        <guid isPermaLink="true">http://mpmendespt.ddns.net//Hello-World.html/</guid>
       </item>
     
   </channel>

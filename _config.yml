@@ -29,6 +29,8 @@ gems: [jekyll-coffeescript, jekyll-watch, jekyll-assets]
 # #######################################
 #url: http://mpmendespt.github.io/
 #shorturl:  mpmendespt.github.io
+url: http://mpmendespt.ddns.net/
+shorturl:  mpmendespt.ddns.net
 
 #
 baseurl:  ''
