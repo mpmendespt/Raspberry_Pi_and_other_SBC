@@ -75,21 +75,23 @@ gems:
 #  extensions:  ["with_toc_data"]
 #highlighter: rouge
 #highlighter: pygments
-highlighter: pygmentize
+#highlighter: pygmentize
 #...........................
-#highlighter: pygments
+highlighter: pygments
 #markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "tables", "with_toc_data"]
 #.............................
 # Build settings ...........................
+
 incremental: false
+
 ##############
 #highlighter: rouge
 markdown: kramdown
-#kramdown:
-#  input: GFM
-#  auto_ids: true
+kramdown:
+  input: GFM
+  auto_ids: true
 #  syntax_highlighter: rouge
 # Build settings
 ################
