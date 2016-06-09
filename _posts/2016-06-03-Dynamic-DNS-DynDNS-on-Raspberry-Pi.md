@@ -72,30 +72,30 @@ Goto [**www.noip.com**](http://www.noip.com/)[
 
 Create a directory for the client software:
 
-```
+```ruby
 mkdir /home/pi/noip
 ```
 
 Download the client software:
 
-```
+```ruby
 wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz
 ```
 
 
 Extract the archive:
 
-```
+```ruby
 tar zxvf noip-duc-linux.tar.gz
 ```
 
 Compile and install:
 
-```
+```ruby
 sudo make
 ```
 
-```
+```ruby
 sudo make install
 ```
 
@@ -117,14 +117,14 @@ New configuration file '/tmp/no-ip2.conf' created.
 
 The Dynamic Update client is started by running:
 
-```
+``` shell
 sudo /usr/local/bin/noip2
 ```
 
 To confirm that the service is working properly you can run the
 following command:
 
-```
+``` shell
 sudo noip2 -S
 ```
 

@@ -187,12 +187,17 @@ one.</p>
     </ul>
   </li>
   <li>
-    <p>Run <strong><em>pandoc -s file.odt -t markdown -o file.md</em></strong>.</p>
+    <p>Run</p>
   </li>
-  <li>
-    <p>Edit the markdown <strong>file.md</strong> and correct every thing that seems wrong!!!
-  There is some markdown editors, i like to use <a href="http://markdownpad.com/">MarkdownPad2</a>.</p>
-  </li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="n">file</span><span class="p">.</span><span class="nf">odt</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="o">-</span><span class="n">o</span> <span class="n">file</span><span class="p">.</span><span class="nf">md</span>
+</code></pre>
+</div>
+
+<ol>
+  <li>Edit the markdown <strong>file.md</strong> and correct every thing that seems wrong!!!
+  There is some markdown editors, i like to use <a href="http://markdownpad.com/">MarkdownPad2</a>.</li>
 </ol>
 
 <p>Test:</p>
@@ -265,19 +270,33 @@ document, use the **</strong><strong><em>-s</em></strong><strong>** or **</stron
 
 <p>To convert from markdown to Word docx:</p>
 
-<p><em>pandoc -s -S input.md -o output.docx</em></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="no">S</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">docx</span>
+</code></pre>
+</div>
 
 <p>To convert from Word docx to markdown:</p>
 
-<p><em>pandoc -f docx -t markdown foo.docx -o foo.markdown</em></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">f</span> <span class="n">docx</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="n">foo</span><span class="p">.</span><span class="nf">docx</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="p">.</span><span class="nf">markdown</span>
+</code></pre>
+</div>
 
 <p>To convert markdown to PDF:</p>
 
-<p><em>pandoc input.md -o output.pdf</em></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">pdf</span>
+</code></pre>
+</div>
 
-<p><em>To convert file.odt to markdown :</em></p>
+<p><strong>To convert from .odt to markdown:</strong></p>
 
-<p><strong><em>pandoc -s file.odt -t markdown -o file.md</em></strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="n">file</span><span class="p">.</span><span class="nf">odt</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="o">-</span><span class="n">o</span> <span class="n">file</span><span class="p">.</span><span class="nf">md</span>
+</code></pre>
+</div>
+
+<p><strong>To convert from markdown to .ODT (OpenDocument Text):</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">odt</span>
+</code></pre>
+</div>
 
 <p>See: *<a href="http://pandoc.org/demos.html"><em>http://pandoc.org/demos.html</em></a></p>
 

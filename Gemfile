@@ -5,7 +5,16 @@ gem 'nokogiri', '~> 1.6.8.rc3'
 
 gem 'certified'
 
+gem 'pygments.rb'
+#gem 'pygments.rb'
+
+gem 'github-pages', group: :jekyll_plugins
+
 #gem 'github-pages'
+
+gem "jekyll" 
+
+gem 'jekyll-sitemap'
 #gem 'jekyll-github-metadata'
 gem "redcarpet"
 
@@ -17,13 +26,13 @@ gem 'wdm', '>= 0.1.0'
 # https://stackoverflow.com/questions/20442763/error-when-running-bundle-install-on-mac-therubyracer-failing-to-install
 #gem "therubyracer", "~> 0.12"
 
-group :jekyll_plugins do
-gem 'github-pages'
+#group :jekyll_plugins do
+#gem 'github-pages'
 #gem 'jekyll-lunr-js-search', '~> 3.1'
-gem 'jekyll-sitemap'
+#gem 'jekyll-sitemap'
 #gem 'autoprefixer-rails'
 #gem 'jekyll-assets'
-end
+#end
 
 #group :development do
 #gem 'capistrano', '~> 3.4.0'

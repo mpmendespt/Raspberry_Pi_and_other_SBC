@@ -17,6 +17,8 @@ title: Raspberry Pi and other SBC
 
 ##############
 gems: ['jekyll-github-metadata']
+###
+
 #
 repository: mpmendespt/repo-name
 #
@@ -30,7 +32,7 @@ gems: [jekyll-coffeescript, jekyll-watch, jekyll-assets]
 
 #
 baseurl:  ''
-paginate:  3
+paginate:  4
 
 # Permalinks
 #
@@ -43,11 +45,16 @@ permalink:  /:title.html/
 #permalink: /blog/:year/:month/:day/:title
 #relative_permalinks: false
 
+encoding: utf-8 
+
 #
 # Here is a part of _config.yml which is changed in Jekyll 3.
 gems:   [jekyll-paginate, jekyll-gist, redcarpet]
 gems:   [pygments.rb]
 #
+gems:
+  - jekyll-sitemap
+
 #gems:   ['wdm', '>= 0.1.0']
 # ^^ Here is a part of _config.yml which is changed in Jekyll 3.
 #
@@ -68,13 +75,16 @@ gems:   [pygments.rb]
 #  extensions:  ["with_toc_data"]
 #highlighter: rouge
 #highlighter: pygments
+highlighter: pygmentize
 #...........................
-highlighter: pygments
+#highlighter: pygments
 #markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "tables", "with_toc_data"]
 #.............................
 # Build settings ...........................
+incremental: false
+##############
 #highlighter: rouge
 markdown: kramdown
 #kramdown:
@@ -82,11 +92,23 @@ markdown: kramdown
 #  auto_ids: true
 #  syntax_highlighter: rouge
 # Build settings
+################
+#gems: 'kramdown'
+#gems: 'coderay'
+#markdown: kramdown
+#kramdown:
+#    enable_coderay: true
+#    coderay:
+#        coderay_line_numbers: table
+#        coderay_css: class
+
+##############
 
 excerpt_separator: ""
 
 ###############################
-safe: true
+##### safe: true
+safe: false
 auto: false 
 
 exclude: ["*.Rmd"]

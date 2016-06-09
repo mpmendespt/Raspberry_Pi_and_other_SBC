@@ -96,13 +96,17 @@ GEM
     minitest (5.9.0)
     multipart-post (2.0.0)
     net-dns (0.8.0)
-    nokogiri (1.6.8.rc3-x64-mingw32)
+    nokogiri (1.6.8-x64-mingw32)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     octokit (4.3.0)
       sawyer (~> 0.7.0, >= 0.5.3)
     pkg-config (1.1.7)
+    posix-spawn (0.3.11)
     public_suffix (1.5.3)
+    pygments.rb (0.6.3)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.2.0)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -114,13 +118,14 @@ GEM
     sawyer (0.7.0)
       addressable (>= 2.3.5, < 2.5)
       faraday (~> 0.8, < 0.10)
-    terminal-table (1.5.2)
+    terminal-table (1.6.0)
     thread_safe (0.3.5)
     typhoeus (0.8.0)
       ethon (>= 0.8.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     wdm (0.1.1)
+    yajl-ruby (1.2.1)
 
 PLATFORMS
   x64-mingw32
@@ -128,8 +133,10 @@ PLATFORMS
 DEPENDENCIES
   certified
   github-pages
+  jekyll
   jekyll-sitemap
   nokogiri (~> 1.6.8.rc3)
+  pygments.rb
   rdiscount
   redcarpet
   wdm (>= 0.1.0)

@@ -240,29 +240,29 @@ save it.</li>
 
 <p>Create a directory for the client software:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>mkdir /home/pi/noip
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">mkdir</span> <span class="sr">/home/</span><span class="n">pi</span><span class="o">/</span><span class="n">noip</span>
 </code></pre>
 </div>
 
 <p>Download the client software:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>wget https://www.noip.com/client/linux/noip-duc-linux.tar.gz
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">wget</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="p">.</span><span class="nf">noip</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">client</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">noip</span><span class="o">-</span><span class="n">duc</span><span class="o">-</span><span class="n">linux</span><span class="p">.</span><span class="nf">tar</span><span class="p">.</span><span class="nf">gz</span>
 </code></pre>
 </div>
 
 <p>Extract the archive:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>tar zxvf noip-duc-linux.tar.gz
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">tar</span> <span class="n">zxvf</span> <span class="n">noip</span><span class="o">-</span><span class="n">duc</span><span class="o">-</span><span class="n">linux</span><span class="p">.</span><span class="nf">tar</span><span class="p">.</span><span class="nf">gz</span>
 </code></pre>
 </div>
 
 <p>Compile and install:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo make
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">make</span>
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo make install
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
 </code></pre>
 </div>
 
@@ -340,12 +340,17 @@ one.</p>
     </ul>
   </li>
   <li>
-    <p>Run <strong><em>pandoc -s file.odt -t markdown -o file.md</em></strong>.</p>
+    <p>Run</p>
   </li>
-  <li>
-    <p>Edit the markdown <strong>file.md</strong> and correct every thing that seems wrong!!!
-  There is some markdown editors, i like to use <a href="http://markdownpad.com/">MarkdownPad2</a>.</p>
-  </li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="n">file</span><span class="p">.</span><span class="nf">odt</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="o">-</span><span class="n">o</span> <span class="n">file</span><span class="p">.</span><span class="nf">md</span>
+</code></pre>
+</div>
+
+<ol>
+  <li>Edit the markdown <strong>file.md</strong> and correct every thing that seems wrong!!!
+  There is some markdown editors, i like to use <a href="http://markdownpad.com/">MarkdownPad2</a>.</li>
 </ol>
 
 <p>Test:</p>
@@ -418,19 +423,33 @@ document, use the **</strong><strong><em>-s</em></strong><strong>** or **</stron
 
 <p>To convert from markdown to Word docx:</p>
 
-<p><em>pandoc -s -S input.md -o output.docx</em></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="no">S</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">docx</span>
+</code></pre>
+</div>
 
 <p>To convert from Word docx to markdown:</p>
 
-<p><em>pandoc -f docx -t markdown foo.docx -o foo.markdown</em></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">f</span> <span class="n">docx</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="n">foo</span><span class="p">.</span><span class="nf">docx</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="p">.</span><span class="nf">markdown</span>
+</code></pre>
+</div>
 
 <p>To convert markdown to PDF:</p>
 
-<p><em>pandoc input.md -o output.pdf</em></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">pdf</span>
+</code></pre>
+</div>
 
-<p><em>To convert file.odt to markdown :</em></p>
+<p><strong>To convert from .odt to markdown:</strong></p>
 
-<p><strong><em>pandoc -s file.odt -t markdown -o file.md</em></strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="n">file</span><span class="p">.</span><span class="nf">odt</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="o">-</span><span class="n">o</span> <span class="n">file</span><span class="p">.</span><span class="nf">md</span>
+</code></pre>
+</div>
+
+<p><strong>To convert from markdown to .ODT (OpenDocument Text):</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">odt</span>
+</code></pre>
+</div>
 
 <p>See: *<a href="http://pandoc.org/demos.html"><em>http://pandoc.org/demos.html</em></a></p>
 
@@ -570,6 +589,28 @@ file. For example, if you previously had this:</p>
   <li><a href="https://help.github.com/articles/creating-and-highlighting-code-blocks/">https://help.github.com/articles/creating-and-highlighting-code-blocks/</a></li>
   <li><a href="https://github.com/pawelgrzybek/pawelgrzybek.github.io">https://github.com/pawelgrzybek/pawelgrzybek.github.io</a></li>
 </ul>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <!-- <a href="//whats-jekyll.html/">  -->
+	  <a href="/whats-jekyll.html/">
+        What's Jekyll?
+      </a>
+    </h1>
+
+    <span class="post-date">27 May 2016</span>
+
+    <p><a href="http://jekyllrb.com">Jekyll</a> is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From <a href="https://github.com/mojombo/jekyll/blob/master/README.markdown">the project’s readme</a>:</p>
+
+<blockquote>
+  <p>Jekyll is a simple, blog aware, static site generator. It takes a template directory […] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.</p>
+</blockquote>
+
+<p>It’s an immensely useful tool and one we encourage you to use here with Hyde.</p>
+
+<p>Find out more by <a href="https://github.com/mojombo/jekyll">visiting the project on GitHub</a>.</p>
 
   </div>
   

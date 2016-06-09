@@ -27,7 +27,11 @@ The process is this.
      -   footnotes.
  
  
-2. Run ***pandoc -s file.odt -t markdown -o file.md***.
+2. Run 
+
+```ruby 
+pandoc -s file.odt -t markdown -o file.md
+```
  
 3. Edit the markdown **file.md** and correct every thing that seems wrong!!!
      There is some markdown editors, i like to use [MarkdownPad2].
@@ -72,8 +76,6 @@ is a link4](http://suttacentral.net/). Here is a footnote.[^4]
 > Here is a blockquote. Here is a blockquote.
 
 
-
-
 ## Pandoc
 
 Pandoc is a general markup converter that can convert from one markup
@@ -105,21 +107,33 @@ document, use the *******-s******* or *******--standalone******* flag:
 
 To convert from markdown to Word docx:
 
-*pandoc -s -S input.md -o output.docx*
+```ruby
+pandoc -s -S input.md -o output.docx
+```
 
 To convert from Word docx to markdown:
 
-*pandoc -f docx -t markdown foo.docx -o foo.markdown*
-
+```ruby
+pandoc -f docx -t markdown foo.docx -o foo.markdown
+```
 
 To convert markdown to PDF:
 
-*pandoc input.md -o output.pdf*
+```ruby
+pandoc input.md -o output.pdf
+```
 
+**To convert from .odt to markdown:**
 
-*To convert file.odt to markdown :*
+```ruby
+pandoc -s file.odt -t markdown -o file.md
+```
 
-***pandoc -s file.odt -t markdown -o file.md***
+**To convert from markdown to .ODT (OpenDocument Text):**
+
+```ruby
+pandoc input.md -o output.odt
+```
 
 
 See: *[*http://pandoc.org/demos.html*](http://pandoc.org/demos.html)
