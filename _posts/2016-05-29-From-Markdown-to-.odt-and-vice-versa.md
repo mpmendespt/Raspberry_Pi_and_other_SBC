@@ -92,12 +92,11 @@ produce [PDF] output on systems where LaTeX, ConTeXt, or *wkhtmltopdf* is instal
 
 <http://pandoc.org/README.html>
 
-****Using Pandoc****
+### Using Pandoc ###
 
-****By default, pandoc produces a document fragment, not a standalone
+By default, pandoc produces a document fragment, not a standalone
 document with a proper header and footer. To produce a standalone
-document, use the *******-s******* or *******--standalone******* flag:
-****
+document, use the **-s** or ***--standalone*** flag:
 
 
 To convert from markdown to Word docx:

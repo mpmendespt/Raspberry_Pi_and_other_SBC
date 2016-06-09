@@ -237,12 +237,11 @@ produce &lt;a href=&quot;https://www.adobe.com/pdf/&quot;&gt;PDF&lt;/a&gt; outpu
 
 &lt;p&gt;&lt;a href=&quot;http://pandoc.org/README.html&quot;&gt;http://pandoc.org/README.html&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;**Using Pandoc&lt;/strong&gt;**&lt;/p&gt;
+&lt;h3 id=&quot;using-pandoc&quot;&gt;Using Pandoc&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;**By default, pandoc produces a document fragment, not a standalone
+&lt;p&gt;By default, pandoc produces a document fragment, not a standalone
 document with a proper header and footer. To produce a standalone
-document, use the **&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;-s&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;** or **&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;–standalone&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;** flag:
-**&lt;/strong&gt;&lt;/p&gt;
+document, use the &lt;strong&gt;-s&lt;/strong&gt; or &lt;strong&gt;&lt;em&gt;–standalone&lt;/em&gt;&lt;/strong&gt; flag:&lt;/p&gt;
 
 &lt;p&gt;To convert from markdown to Word docx:&lt;/p&gt;
 
