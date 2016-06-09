@@ -27,12 +27,7 @@ The process is this.
      -   footnotes.
  
  
-2. Run 
-
-```ruby 
-pandoc -s file.odt -t markdown -o file.md
-```
- 
+2. Run   **`pandoc -s file.odt -t markdown -o file.md`**
 3. Edit the markdown **file.md** and correct every thing that seems wrong!!!
      There is some markdown editors, i like to use [MarkdownPad2].
 

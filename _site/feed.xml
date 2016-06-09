@@ -171,16 +171,7 @@ one.&lt;/p&gt;
       &lt;li&gt;footnotes.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Run&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pandoc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;odt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;markdown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;md&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;ol&gt;
+  &lt;li&gt;Run   &lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pandoc -s file.odt -t markdown -o file.md&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;Edit the markdown &lt;strong&gt;file.md&lt;/strong&gt; and correct every thing that seems wrong!!!
   There is some markdown editors, i like to use &lt;a href=&quot;http://markdownpad.com/&quot;&gt;MarkdownPad2&lt;/a&gt;.&lt;/li&gt;
 &lt;/ol&gt;
