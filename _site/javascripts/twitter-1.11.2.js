@@ -175,7 +175,7 @@ if (typeof renderTwitters != 'function') (function () {
                     return;
                 }
                 
-                var url = 'http://www.twitter.com/statuses/' + (options.withFriends ? 'friends_timeline' : 'user_timeline') + '/' + id + '.json?callback=twitterCallback' + guid + '&count=20';
+                var url = 'https://www.twitter.com/statuses/' + (options.withFriends ? 'friends_timeline' : 'user_timeline') + '/' + id + '.json?callback=twitterCallback' + guid + '&count=20';
 
                 if (options.timeout) {
                     window['twitterTimeout' + guid] = setTimeout(function () {
@@ -301,7 +301,7 @@ if (typeof renderTwitters != 'function') (function () {
         return s.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&\?\/.=]+/g, function(m) {
             return m.link(m);
         }).replace(/@[\S]+/g, function(m) {
-            return '<a href="http://twitter.com/' + m.substr(1) + '">' + m + '</a>';
+            return '<a href="https://twitter.com/' + m.substr(1) + '">' + m + '</a>';
         });
     }
 })();
