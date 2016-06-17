@@ -7,7 +7,7 @@ category: ArchLinux Arch Linux Raspberry Pi
 Currently neither [Raspberry Pi](https://www.raspberrypi.org/) nor the
 [Arch Linux ARM](http://archlinuxarm.org/) website offer an image ready
 for use of Arch Linux for Raspberry Pi. So i followed this steps on
-Linux (in my case another Raspberry with one USB Pen Drive):
+Linux (in my case another Raspberry with a USB Pen Drive):
 
 1.  Download the image for Raspberry Pi (ARM).
 
