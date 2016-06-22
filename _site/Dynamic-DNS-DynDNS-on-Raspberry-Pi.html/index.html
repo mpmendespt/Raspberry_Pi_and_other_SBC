@@ -289,13 +289,87 @@ following command:</p>
 </code></pre>
 </div>
 
+<h3 id="to-start-the-client-when-the-system-reboots">To start the client when the system reboots.</h3>
+<p>We write a start up script:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">nano</span> <span class="sr">/etc/ini</span><span class="n">t</span><span class="p">.</span><span class="nf">d</span><span class="o">/</span><span class="n">noip2</span>
+</code></pre>
+</div>
+<p>with the following lines:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">#! /bin/sh</span>
+<span class="c1"># /etc/init.d/noip2</span>
+
+<span class="c1"># Supplied by no-ip.com</span>
+<span class="c1"># Modified for Debian GNU/Linux by Eivind L. Rygge &lt;eivind@rygge.org&gt;</span>
+<span class="c1"># Updated by David Courtney to not use pidfile 130130 for Debian 6.</span>
+<span class="c1"># Updated again by David Courtney to "LSBize" the script for Debian 7.</span>
+
+<span class="c1">### BEGIN INIT INFO</span>
+<span class="c1"># Provides:     noip2</span>
+<span class="c1"># Required-Start: networking</span>
+<span class="c1"># Required-Stop:</span>
+<span class="c1"># Should-Start:</span>
+<span class="c1"># Should-Stop:</span>
+<span class="c1"># Default-Start: 2 3 4 5</span>
+<span class="c1"># Default-Stop: 0 1 6</span>
+<span class="c1"># Short-Description: Start noip2 at boot time</span>
+<span class="c1"># Description: Start noip2 at boot time</span>
+<span class="c1">### END INIT INFO</span>
+
+<span class="c1"># . /etc/rc.d/init.d/functions  # uncomment/modify for your killproc</span>
+
+<span class="no">DAEMON</span><span class="o">=</span><span class="sr">/usr/</span><span class="n">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">noip2</span>
+<span class="no">NAME</span><span class="o">=</span><span class="n">noip2</span>
+
+<span class="nb">test</span> <span class="o">-</span><span class="n">x</span> <span class="vg">$DAEMON</span> <span class="o">||</span> <span class="nb">exit</span> <span class="mi">0</span>
+
+<span class="k">case</span> <span class="s2">"$1"</span> <span class="k">in</span>
+    <span class="n">start</span><span class="p">)</span>
+    <span class="n">echo</span> <span class="o">-</span><span class="n">n</span> <span class="s2">"Starting dynamic address update: "</span>
+    <span class="n">start</span><span class="o">-</span><span class="n">stop</span><span class="o">-</span><span class="n">daemon</span> <span class="o">--</span><span class="n">start</span> <span class="o">--</span><span class="nb">exec</span> <span class="vg">$DAEMON</span>
+    <span class="n">echo</span> <span class="s2">"noip2."</span>
+    <span class="p">;;</span>
+    <span class="n">stop</span><span class="p">)</span>
+    <span class="n">echo</span> <span class="o">-</span><span class="n">n</span> <span class="s2">"Shutting down dynamic address update:"</span>
+    <span class="n">start</span><span class="o">-</span><span class="n">stop</span><span class="o">-</span><span class="n">daemon</span> <span class="o">--</span><span class="n">stop</span> <span class="o">--</span><span class="n">oknodo</span> <span class="o">--</span><span class="k">retry</span> <span class="mi">30</span> <span class="o">--</span><span class="nb">exec</span> <span class="vg">$DAEMON</span>
+    <span class="n">echo</span> <span class="s2">"noip2."</span>
+    <span class="p">;;</span>
+
+    <span class="n">restart</span><span class="p">)</span>
+    <span class="n">echo</span> <span class="o">-</span><span class="n">n</span> <span class="s2">"Restarting dynamic address update: "</span>
+    <span class="n">start</span><span class="o">-</span><span class="n">stop</span><span class="o">-</span><span class="n">daemon</span> <span class="o">--</span><span class="n">stop</span> <span class="o">--</span><span class="n">oknodo</span> <span class="o">--</span><span class="k">retry</span> <span class="mi">30</span> <span class="o">--</span><span class="nb">exec</span> <span class="vg">$DAEMON</span>
+    <span class="n">start</span><span class="o">-</span><span class="n">stop</span><span class="o">-</span><span class="n">daemon</span> <span class="o">--</span><span class="n">start</span> <span class="o">--</span><span class="nb">exec</span> <span class="vg">$DAEMON</span>
+    <span class="n">echo</span> <span class="s2">"noip2."</span>
+    <span class="p">;;</span>
+
+    <span class="o">*</span><span class="p">)</span>
+    <span class="n">echo</span> <span class="s2">"Usage: $0 {start|stop|restart}"</span>
+    <span class="nb">exit</span> <span class="mi">1</span>
+<span class="n">esac</span>
+<span class="nb">exit</span> <span class="mi">0</span>
+</code></pre>
+</div>
+
+<p>Then give it executable permissions and update the rc.d scripts:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="sr">/etc/ini</span><span class="n">t</span><span class="p">.</span><span class="nf">d</span><span class="o">/</span><span class="n">noip2</span>
+<span class="n">sudo</span> <span class="n">update</span><span class="o">-</span><span class="n">rc</span><span class="p">.</span><span class="nf">d</span> <span class="n">noip2</span> <span class="n">defaults</span>
+</code></pre>
+</div>
+
+<p>Now it automatically update it’s ip on boot.</p>
+
 <h3 id="references">References</h3>
 
 <ul>
   <li><a href="http://raspberrywebserver.com/serveradmin/get-your-raspberry-pi-web-site-on-line.html">http://raspberrywebserver.com/serveradmin/get-your-raspberry-pi-web-site-on-line.html</a></li>
   <li><a href="http://www.techjawab.com/2013/06/setup-dynamic-dns-dyndns-for-free-on.html">http://www.techjawab.com/2013/06/setup-dynamic-dns-dyndns-for-free-on.html</a></li>
   <li><a href="http://projpi.com/raspberry-pi-tips-and-hacks/raspberry-pi-2-on-dynamic-ip-and-noip/">http://projpi.com/raspberry-pi-tips-and-hacks/raspberry-pi-2-on-dynamic-ip-and-noip/</a></li>
+  <li><a href="https://www.howtoforge.com/how-to-install-no-ip2-on-ubuntu-12.04-lts-in-order-to-host-servers-on-a-dynamic-ip-address">https://www.howtoforge.com/how-to-install-no-ip2-on-ubuntu-12.04-lts-in-order-to-host-servers-on-a-dynamic-ip-address</a></li>
+  <li><a href="https://unix.stackexchange.com/questions/199178/run-automatically-noip2-when-the-machine-is-booted">https://unix.stackexchange.com/questions/199178/run-automatically-noip2-when-the-machine-is-booted</a></li>
 </ul>
+
 
   <!--  twitter  -->
   If you liked this post, you can

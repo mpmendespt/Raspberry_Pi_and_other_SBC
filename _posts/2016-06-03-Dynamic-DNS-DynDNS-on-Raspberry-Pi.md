@@ -128,8 +128,83 @@ following command:
 sudo noip2 -S
 ```
 
+### To start the client when the system reboots.
+We write a start up script:
+
+```ruby
+sudo nano /etc/init.d/noip2
+```
+with the following lines:
+
+```ruby
+#! /bin/sh
+# /etc/init.d/noip2
+
+# Supplied by no-ip.com
+# Modified for Debian GNU/Linux by Eivind L. Rygge <eivind@rygge.org>
+# Updated by David Courtney to not use pidfile 130130 for Debian 6.
+# Updated again by David Courtney to "LSBize" the script for Debian 7.
+
+### BEGIN INIT INFO
+# Provides:     noip2
+# Required-Start: networking
+# Required-Stop:
+# Should-Start:
+# Should-Stop:
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Start noip2 at boot time
+# Description: Start noip2 at boot time
+### END INIT INFO
+
+# . /etc/rc.d/init.d/functions  # uncomment/modify for your killproc
+
+DAEMON=/usr/local/bin/noip2
+NAME=noip2
+
+test -x $DAEMON || exit 0
+
+case "$1" in
+    start)
+    echo -n "Starting dynamic address update: "
+    start-stop-daemon --start --exec $DAEMON
+    echo "noip2."
+    ;;
+    stop)
+    echo -n "Shutting down dynamic address update:"
+    start-stop-daemon --stop --oknodo --retry 30 --exec $DAEMON
+    echo "noip2."
+    ;;
+
+    restart)
+    echo -n "Restarting dynamic address update: "
+    start-stop-daemon --stop --oknodo --retry 30 --exec $DAEMON
+    start-stop-daemon --start --exec $DAEMON
+    echo "noip2."
+    ;;
+
+    *)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+esac
+exit 0
+```
+
+Then give it executable permissions and update the rc.d scripts:
+
+```ruby
+sudo chmod +x /etc/init.d/noip2
+sudo update-rc.d noip2 defaults
+```
+
+Now it automatically update it’s ip on boot.
+
+
 ### References 
 
 * <http://raspberrywebserver.com/serveradmin/get-your-raspberry-pi-web-site-on-line.html>
 * <http://www.techjawab.com/2013/06/setup-dynamic-dns-dyndns-for-free-on.html>
 * <http://projpi.com/raspberry-pi-tips-and-hacks/raspberry-pi-2-on-dynamic-ip-and-noip/>
+* <https://www.howtoforge.com/how-to-install-no-ip2-on-ubuntu-12.04-lts-in-order-to-host-servers-on-a-dynamic-ip-address>
+* <https://unix.stackexchange.com/questions/199178/run-automatically-noip2-when-the-machine-is-booted>
+
