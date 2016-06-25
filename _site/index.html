@@ -166,6 +166,182 @@
   
   <div class="post">
     <h1 class="post-title">
+      <!-- <a href="//Using-a-custom-domain-with-GitHub-Pages.html/">  -->
+	  <a href="/Using-a-custom-domain-with-GitHub-Pages.html/">
+        Using a custom domain with GitHub Pages
+      </a>
+    </h1>
+
+    <span class="post-date">25 Jun 2016</span>
+
+    <p>Setup custom domain on the user page and then all the project pages of
+Github repositories will automatically appear under the same url.</p>
+
+<p>Github provides two types of pages, <br />
+- User pages <br />
+- Project pages</p>
+
+<h3 id="user-pages">User pages</h3>
+
+<p>It’s a Github repository with a special name <strong>username.github.io</strong> and
+all the contents of this repository must be in the <strong>master</strong> branch.</p>
+
+<p>By default, the user pages are available under the url,
+<strong>http://username.github.io</strong>.</p>
+
+<h3 id="project-pages">Project pages</h3>
+
+<p>Project pages are project specific files lying in the <em>gh-pages</em> branch
+of the repository. These pages can be accessed via the url
+<strong>username.github.io/repository_name</strong>.</p>
+
+<p>For example,</p>
+
+<p><em>Repository name -&gt; Test2</em></p>
+
+<p><em>URL -&gt; http://mpmendespt.github.io/Test2</em></p>
+
+<h3 id="custom-domain-for-user-pages">Custom domain for user pages</h3>
+
+<p>Custom domain can be set for both user and project pages.</p>
+
+<p><strong>Step 1</strong> <br />
+Create the repository <em>username.github.io</em> on Github.</p>
+
+<p><strong>Step 2</strong> <br />
+Add a CNAME file containing the custom domain name that you want to map.
+The <a href="https://github.com/pankajparashar/pankajparashar.github.io/blob/master/CNAME">CNAME</a> file contains, <em>yourdomain.com</em></p>
+
+<p><strong>Step 3</strong> <br />
+Follow your DNS provider’s instructions to create a <em>CNAME</em> record that
+points from your default pages domain to your
+<em>YOUR-GITHUB-USERNAME.github.io</em>.</p>
+
+<p><strong>Step 4</strong></p>
+
+<p><a href="https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/">Adding a custom domain for your GitHub Pages site</a> ( see Custom domain for project pages, step 3, next)</p>
+
+<p>Once the propagation is complete, whenever you visit
+<em>YOUR-GITHUB-USERNAME.github.io</em> you will be redirected to the custom
+domain <em>yourdomain.com</em>.</p>
+
+<h2 id="custom-domain-for-project-pages">Custom domain for project pages</h2>
+
+<h3 id="create-a-gh-pages-branch">Create a gh-pages branch</h3>
+
+<h3 id="create-a-new-repository-on-the-command-line">create a new repository on the command line</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">echo</span> <span class="s2">"</span><span class="se">\#</span><span class="s2"> Test2"</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="no">README</span><span class="p">.</span><span class="nf">md</span>   
+<span class="n">git</span> <span class="n">init</span>   
+<span class="n">git</span> <span class="n">add</span> <span class="no">README</span><span class="p">.</span><span class="nf">md</span>   
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">"first commit"</span>   
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">mpmendespt</span><span class="o">/</span><span class="no">Test2</span><span class="p">.</span><span class="nf">git</span>   
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
+</code></pre>
+</div>
+
+<p>you’ll need to create the new <strong><em>gh-pages</em></strong> branch and remove all content
+from the working directory and index:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">cd</span> <span class="o">*</span><span class="n">repository</span><span class="o">*</span>
+
+<span class="n">git</span> <span class="n">checkout</span> <span class="o">--</span><span class="n">orphan</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>   
+<span class="p">\</span><span class="c1"># Creates our branch, without any parents (it's an orphan!) Switched to a new branch 'gh-pages'</span>
+
+<span class="n">git</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">.</span>   
+<span class="p">\</span><span class="c1"># Remove all files from the old working tree</span>
+
+<span class="n">rm</span> <span class="s1">'.gitignore'</span>
+
+<span class="n">git</span> <span class="n">branch</span> <span class="o">--</span><span class="n">set</span><span class="o">-</span><span class="n">upstream</span><span class="o">-</span><span class="n">to</span><span class="o">=</span><span class="n">origin</span><span class="o">/</span><span class="n">gh</span><span class="o">-</span><span class="n">pages</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>   
+</code></pre>
+</div>
+
+<h3 id="add-content-and-push">Add content and push</h3>
+
+<p>Now you have an empty working directory. You can create some content in
+this branch and push it to GitHub. For example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">echo</span> <span class="s2">"My Page"</span> <span class="o">&gt;</span> <span class="n">index</span><span class="p">.</span><span class="nf">html</span>   
+<span class="n">git</span> <span class="n">add</span> <span class="n">index</span><span class="p">.</span><span class="nf">html</span>   
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span> <span class="s2">"First pages commit"</span>    
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>
+</code></pre>
+</div>
+
+<p>Your GitHub Pages site should now be available. You’ll receive an email
+if your build is unsuccessful.</p>
+
+<h3 id="load-your-new-github-pages-site">Load your new GitHub Pages site</h3>
+
+<p>After your push to the <em>gh-pages</em> branch, your Project Pages site will
+be available at
+<code class="highlighter-rouge">http(s)://&lt;username&gt;.github.io/&lt;projectname&gt;</code> .</p>
+
+<p><a href="https://mpmendespt.github.io/Test2/">https://mpmendespt.github.io/Test2/</a></p>
+
+<h2 id="custom-domain-for-project-pages-1">Custom domain for project pages</h2>
+
+<p>To Setup a custom domain for a gh-pages Project Pages repo that handles
+www.yourdomain.com and yourdomain.com:</p>
+
+<ol>
+  <li>
+    <p>From your project repo, gh-pages branch. Create a CNAME file with
+the contents <em>yourdomain.com</em>. Commit then push.</p>
+  </li>
+  <li>Follow your DNS provider’s instructions to create a <em>CNAME</em> record
+that points from your default pages domain to your
+<em>YOUR-GITHUB-USERNAME.github.io</em>.</li>
+  <li><a href="https://help.github.com/articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/">Adding a custom domain for your GitHub Pages site</a></li>
+</ol>
+
+<blockquote>
+  <ol>
+    <li>On GitHub, navigate to your GitHub Pages site’s repository.</li>
+    <li>Under your repository name, click <strong>Settings</strong>.</li>
+    <li>Under “Custom domain”, add your custom domain and click <strong>Save</strong>.</li>
+  </ol>
+</blockquote>
+
+<ul>
+  <li>
+    <p>Wait til the name servers update, and then confirm that the DNS record is set up correctly:</p>
+
+    <p><em>dig www-mpmendespt.ddns.net +nostats +nocomments +nocmd</em></p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">*</span><span class="n">dig</span> <span class="n">www</span><span class="o">-</span><span class="n">mpmendespt</span><span class="p">.</span><span class="nf">ddns</span><span class="p">.</span><span class="nf">net</span> <span class="o">+</span><span class="n">nostats</span> <span class="o">+</span><span class="n">nocomments</span> <span class="o">+</span><span class="n">nocmd</span><span class="o">*</span>   
+
+<span class="o">*</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="no">DiG</span> <span class="mi">9</span><span class="o">.</span><span class="mi">9</span><span class="o">.</span><span class="mi">5</span><span class="o">-</span><span class="mi">9</span><span class="o">+</span><span class="n">deb8u6</span><span class="o">-</span><span class="no">Raspbian</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+<span class="n">www</span><span class="o">-</span><span class="n">mpmendespt</span><span class="p">.</span><span class="nf">ddns</span><span class="p">.</span><span class="nf">net</span> <span class="o">+</span><span class="n">nostats</span> <span class="o">+</span><span class="n">nocomments</span> <span class="o">+</span><span class="n">nocmd</span><span class="o">*</span>   
+<span class="o">*</span><span class="p">;;</span> <span class="n">global</span> <span class="ss">options: </span><span class="o">+</span><span class="n">cmd</span><span class="o">*</span>   
+<span class="o">*</span><span class="p">;</span><span class="n">www</span><span class="o">-</span><span class="n">mpmendespt</span><span class="p">.</span><span class="nf">ddns</span><span class="p">.</span><span class="nf">net</span><span class="o">.</span> <span class="no">IN</span> <span class="no">A</span><span class="o">*</span>   
+<span class="o">*</span><span class="n">www</span><span class="o">-</span><span class="n">mpmendespt</span><span class="p">.</span><span class="nf">ddns</span><span class="p">.</span><span class="nf">net</span><span class="o">.</span> <span class="mi">60</span> <span class="no">IN</span> <span class="no">CNAME</span> <span class="n">mpmendespt</span><span class="p">.</span><span class="nf">github</span><span class="p">.</span><span class="nf">io</span><span class="p">.</span><span class="nf">*</span>   
+<span class="o">*</span><span class="n">mpmendespt</span><span class="p">.</span><span class="nf">github</span><span class="p">.</span><span class="nf">io</span><span class="o">.</span> <span class="mi">674</span> <span class="no">IN</span> <span class="no">CNAME</span> <span class="n">github</span><span class="p">.</span><span class="nf">map</span><span class="p">.</span><span class="nf">fastly</span><span class="p">.</span><span class="nf">net</span><span class="p">.</span><span class="nf">*</span>   
+<span class="o">*</span><span class="n">github</span><span class="p">.</span><span class="nf">map</span><span class="p">.</span><span class="nf">fastly</span><span class="p">.</span><span class="nf">net</span><span class="o">.</span> <span class="mi">18</span> <span class="no">IN</span> <span class="no">CNAME</span> <span class="n">prod</span><span class="p">.</span><span class="nf">github</span><span class="p">.</span><span class="nf">map</span><span class="p">.</span><span class="nf">fastlylb</span><span class="p">.</span><span class="nf">net</span><span class="p">.</span><span class="nf">*</span>   
+<span class="o">*</span><span class="n">prod</span><span class="p">.</span><span class="nf">github</span><span class="p">.</span><span class="nf">map</span><span class="p">.</span><span class="nf">fastlylb</span><span class="p">.</span><span class="nf">net</span><span class="o">.</span> <span class="mi">18</span> <span class="no">IN</span> <span class="no">A</span> <span class="mi">151</span><span class="o">.</span><span class="mi">101</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="mi">133</span><span class="o">*</span>   
+</code></pre>
+</div>
+
+<h3 id="references">References:</h3>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/9082499/custom-domain-for-github-project-pages">https://stackoverflow.com/questions/9082499/custom-domain-for-github-project-pages</a></li>
+  <li><a href="https://pankajparashar.com/posts/custom-domain-github-pages/">https://pankajparashar.com/posts/custom-domain-github-pages/</a></li>
+  <li><a href="https://help.github.com/articles/creating-project-pages-manually/">https://help.github.com/articles/creating-project-pages-manually/</a></li>
+  <li><a href="https://help.github.com/articles/setting-up-a-custom-subdomain/">https://help.github.com/articles/setting-up-a-custom-subdomain/</a></li>
+  <li><a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/">https://help.github.com/articles/using-a-custom-domain-with-github-pages/</a></li>
+  <li><a href="https://help.github.com/articles/setting-up-an-apex-domain/">https://help.github.com/articles/setting-up-an-apex-domain/</a></li>
+  <li><a href="https://stackoverflow.com/questions/23375422/how-to-setup-github-pages-to-redirect-dns-requests-from-subdomain-e-g-www-to">https://stackoverflow.com/questions/23375422/how-to-setup-github-pages-to-redirect-dns-requests-from-subdomain-e-g-www-to</a></li>
+</ul>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <!-- <a href="//Install-Arch-Linux-on-RaspberryPi.html/">  -->
 	  <a href="/Install-Arch-Linux-on-RaspberryPi.html/">
         Install Arch Linux on Raspberry Pi
@@ -738,115 +914,6 @@ document, use the <strong>-s</strong> or <strong><em>–standalone</em></strong>
     </li>
   </ol>
 </div>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <!-- <a href="//GitHub-Pages-now-faster-and-simpler.html/">  -->
-	  <a href="/GitHub-Pages-now-faster-and-simpler.html/">
-        GitHub Pages now faster and simpler!
-      </a>
-    </h1>
-
-    <span class="post-date">28 May 2016</span>
-
-    <h3 id="updates-to-markdown-filter-and-syntax-highlighters">Updates to Markdown filter and syntax highlighters</h3>
-
-<p>Github recently adopted Kramdown as their only Markdown processor, which
-will go into effect after May 1.</p>
-
-<p>And instead of Pygments, Rouge will be now the only syntax highlighter
-supported by Github Pages. Github announced these changes in a recent
-<a href="https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0">blog
-post</a>:</p>
-
-<p>GitHub Pages now <em>only</em> supports
-<a href="https://github.com/jneen/rouge">Rouge</a>, a pure-Ruby syntax highlighter,
-meaning you no longer need to install Python and Pygments to preview
-your site locally. If you were previously using Pygments for
-highlighting, the two libraries are feature compatible, so we’ll swap
-Rouge in for Pygments when we build your site, to ensure a seamless
-transition.</p>
-
-<p>Traditionally, highlighting in Jekyll has been implemented via <a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting">the
-</a><a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting"> <strong>{ % highlight % }</strong>  </a><a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting">
-Liquid tag</a>,
-forcing you to leave a pure-Markdown experience. With kramdown and Rouge
-as the new defaults, syntax highlighting on GitHub Pages should work
-like you’d expect it to work anywhere else on GitHub, with native
-support for <a href="https://help.github.com/articles/creating-and-highlighting-code-blocks/">backtick-style fenced code
-blocks</a>
-right within the Markdown.</p>
-
-<blockquote>
-  <p>You can create fenced code blocks by placing triple backticks <em>```</em>
-before and after the code block.</p>
-</blockquote>
-
-<h2 id="how-to-make-the-updates-to-use-kramdown-and-rouge">How to make the updates to use Kramdown and Rouge</h2>
-
-<p>If you were using redcarpet and Pygments, and you want to switch to
-Kramdown and Rouge, you need to make an update in your configuration
-file. For example, if you previously had this:</p>
-
-<blockquote>
-  <p><em>highlighter: pygments</em> <br />
-<em>markdown: redcarpet</em>  <br />
-<em>redcarpet:</em>  <br />
-&gt; <em>extensions: [“no_intra_emphasis”, “fenced_code_blocks”, “tables”, “with_toc_data”]</em></p>
-</blockquote>
-
-<p>Just change it to this:</p>
-
-<blockquote>
-  <p><em>highlighter: rouge</em> <br />
-<em>markdown: kramdown</em>  <br />
-<em>kramdown:</em> <br />
-&gt; <em>input: GFM</em> <br />
-<em>auto_ids: true</em>   <br />
-<em>syntax_highlighter: rouge</em></p>
-</blockquote>
-
-<p>Make sure you specify the Github Flavored Markdown parser by adding
-<em>input: <strong>GFM</strong></em>. Otherwise backticks won’t be processed.</p>
-
-<h3 id="test">Test</h3>
-
-<p><em>{ % highlight css % }</em> <br />
-  body { <br />
-   margin: 0; <br />
-  } <br />
-<em>{ % endhighlight % }</em></p>
-
-<p>Output:</p>
-
-<figure class="highlight"><pre><code class="language-css" data-lang="css">   
-  <span class="nt">body</span> <span class="p">{</span>   
-   <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>   
-  <span class="p">}</span>    </code></pre></figure>
-
-<p><em>```css</em> <br />
-<em>body {</em> <br />
-* margin: 0;* <br />
-<em>}</em> <br />
-<em>```</em></p>
-
-<p>Output:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>      
- <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>      
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<h3 id="references">References</h3>
-<ul>
-  <li><a href="http://idratherbewriting.com/2016/02/21/bug-with-kramdown-and-rouge-with-github-pages/#updates-to-markdown-filter-and-syntax-highlighters">http://idratherbewriting.com/2016/02/21/bug-with-kramdown-and-rouge-with-github-pages/#updates-to-markdown-filter-and-syntax-highlighters</a></li>
-  <li><a href="https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0">https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0</a></li>
-  <li><a href="https://help.github.com/articles/creating-and-highlighting-code-blocks/">https://help.github.com/articles/creating-and-highlighting-code-blocks/</a></li>
-  <li><a href="https://github.com/pawelgrzybek/pawelgrzybek.github.io">https://github.com/pawelgrzybek/pawelgrzybek.github.io</a></li>
-</ul>
 
   </div>
   

@@ -166,6 +166,115 @@
   
   <div class="post">
     <h1 class="post-title">
+      <!-- <a href="//GitHub-Pages-now-faster-and-simpler.html/">  -->
+	  <a href="/GitHub-Pages-now-faster-and-simpler.html/">
+        GitHub Pages now faster and simpler!
+      </a>
+    </h1>
+
+    <span class="post-date">28 May 2016</span>
+
+    <h3 id="updates-to-markdown-filter-and-syntax-highlighters">Updates to Markdown filter and syntax highlighters</h3>
+
+<p>Github recently adopted Kramdown as their only Markdown processor, which
+will go into effect after May 1.</p>
+
+<p>And instead of Pygments, Rouge will be now the only syntax highlighter
+supported by Github Pages. Github announced these changes in a recent
+<a href="https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0">blog
+post</a>:</p>
+
+<p>GitHub Pages now <em>only</em> supports
+<a href="https://github.com/jneen/rouge">Rouge</a>, a pure-Ruby syntax highlighter,
+meaning you no longer need to install Python and Pygments to preview
+your site locally. If you were previously using Pygments for
+highlighting, the two libraries are feature compatible, so we’ll swap
+Rouge in for Pygments when we build your site, to ensure a seamless
+transition.</p>
+
+<p>Traditionally, highlighting in Jekyll has been implemented via <a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting">the
+</a><a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting"> <strong>{ % highlight % }</strong>  </a><a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting">
+Liquid tag</a>,
+forcing you to leave a pure-Markdown experience. With kramdown and Rouge
+as the new defaults, syntax highlighting on GitHub Pages should work
+like you’d expect it to work anywhere else on GitHub, with native
+support for <a href="https://help.github.com/articles/creating-and-highlighting-code-blocks/">backtick-style fenced code
+blocks</a>
+right within the Markdown.</p>
+
+<blockquote>
+  <p>You can create fenced code blocks by placing triple backticks <em>```</em>
+before and after the code block.</p>
+</blockquote>
+
+<h2 id="how-to-make-the-updates-to-use-kramdown-and-rouge">How to make the updates to use Kramdown and Rouge</h2>
+
+<p>If you were using redcarpet and Pygments, and you want to switch to
+Kramdown and Rouge, you need to make an update in your configuration
+file. For example, if you previously had this:</p>
+
+<blockquote>
+  <p><em>highlighter: pygments</em> <br />
+<em>markdown: redcarpet</em>  <br />
+<em>redcarpet:</em>  <br />
+&gt; <em>extensions: [“no_intra_emphasis”, “fenced_code_blocks”, “tables”, “with_toc_data”]</em></p>
+</blockquote>
+
+<p>Just change it to this:</p>
+
+<blockquote>
+  <p><em>highlighter: rouge</em> <br />
+<em>markdown: kramdown</em>  <br />
+<em>kramdown:</em> <br />
+&gt; <em>input: GFM</em> <br />
+<em>auto_ids: true</em>   <br />
+<em>syntax_highlighter: rouge</em></p>
+</blockquote>
+
+<p>Make sure you specify the Github Flavored Markdown parser by adding
+<em>input: <strong>GFM</strong></em>. Otherwise backticks won’t be processed.</p>
+
+<h3 id="test">Test</h3>
+
+<p><em>{ % highlight css % }</em> <br />
+  body { <br />
+   margin: 0; <br />
+  } <br />
+<em>{ % endhighlight % }</em></p>
+
+<p>Output:</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css">   
+  <span class="nt">body</span> <span class="p">{</span>   
+   <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>   
+  <span class="p">}</span>    </code></pre></figure>
+
+<p><em>```css</em> <br />
+<em>body {</em> <br />
+* margin: 0;* <br />
+<em>}</em> <br />
+<em>```</em></p>
+
+<p>Output:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>      
+ <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>      
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="references">References</h3>
+<ul>
+  <li><a href="http://idratherbewriting.com/2016/02/21/bug-with-kramdown-and-rouge-with-github-pages/#updates-to-markdown-filter-and-syntax-highlighters">http://idratherbewriting.com/2016/02/21/bug-with-kramdown-and-rouge-with-github-pages/#updates-to-markdown-filter-and-syntax-highlighters</a></li>
+  <li><a href="https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0">https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0</a></li>
+  <li><a href="https://help.github.com/articles/creating-and-highlighting-code-blocks/">https://help.github.com/articles/creating-and-highlighting-code-blocks/</a></li>
+  <li><a href="https://github.com/pawelgrzybek/pawelgrzybek.github.io">https://github.com/pawelgrzybek/pawelgrzybek.github.io</a></li>
+</ul>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <!-- <a href="//whats-jekyll.html/">  -->
 	  <a href="/whats-jekyll.html/">
         What's Jekyll?
