@@ -136,20 +136,18 @@ www.yourdomain.com and yourdomain.com:
 
 - Wait til the name servers update, and then confirm that the DNS record is set up correctly:
 
-    *dig www-mpmendespt.ddns.net +nostats +nocomments +nocmd*
+    ```dig www-mpmendespt.ddns.net +nostats +nocomments +nocmd```
 
 
 ```ruby
-*dig www-mpmendespt.ddns.net +nostats +nocomments +nocmd*   
-
-*; &lt;&lt;&gt;&gt; DiG 9.9.5-9+deb8u6-Raspbian &lt;&lt;&gt;&gt;
-www-mpmendespt.ddns.net +nostats +nocomments +nocmd*   
-*;; global options: +cmd*   
-*;www-mpmendespt.ddns.net. IN A*   
-*www-mpmendespt.ddns.net. 60 IN CNAME mpmendespt.github.io.*   
-*mpmendespt.github.io. 674 IN CNAME github.map.fastly.net.*   
-*github.map.fastly.net. 18 IN CNAME prod.github.map.fastlylb.net.*   
-*prod.github.map.fastlylb.net. 18 IN A 151.101.12.133*   
+; <<>> DiG 9.9.5-9+deb8u6-Raspbian <<>> www-mpmendespt.ddns.net +nostats +nocomments +nocmd   
+;; global options: +cmd     
+;www-mpmendespt.ddns.net.       IN      A   
+www-mpmendespt.ddns.net. 60     IN      CNAME   mpmendespt.github.io.   
+mpmendespt.github.io.   2045    IN      CNAME   github.map.fastly.net.   
+github.map.fastly.net.  10      IN      CNAME   prod.github.map.fastlylb.net.   
+prod.github.map.fastlylb.net. 10 IN     A       151.101.12.133   
+ 
 ```
 
 
