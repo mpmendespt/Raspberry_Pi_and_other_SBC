@@ -58,14 +58,14 @@ Linux (in my case another Raspberry with a USB Pen Drive):
 5.  Mount the **boot** partition [^1]:
 
     ```ruby
-	sudo losetup -v -f -o \$((2048 \* 512)) --sizelimit 104857600
+	sudo losetup -v -f -o \$((2048 * 512)) --sizelimit 104857600
     arch.img
 	```
 
 6.  Mount the **root** partition:
 
     ```ruby
-	sudo losetup -v -f -o \$((206848 \* 512)) --sizelimit 1833959424
+	sudo losetup -v -f -o \$((206848 * 512)) --sizelimit 1833959424
     arch.img
 
     sudo fdisk -l /dev/loop0
@@ -109,7 +109,7 @@ Linux (in my case another Raspberry with a USB Pen Drive):
 10. Copy **boot** files:
 
     ```ruby   
-	sudo mv root/boot/\* boot   
+	sudo mv root/boot/* boot   
 
     sync   
 	```
@@ -135,7 +135,7 @@ The image is ready!!
 Now I copy it to my windows:
 
 ```ruby
-"C:\Program Files (x86)"\PuTTY\pscp pi@192.168.1.110:/mnt/usbdrive/archlinux/**arch.img** "C:\tmp"
+"C:\Program Files (x86)"\PuTTY\pscp pi@192.168.1.110:/mnt/usbdrive/archlinux/arch.img "C:\tmp"
 ```
 
 Then we can write it on SD card with

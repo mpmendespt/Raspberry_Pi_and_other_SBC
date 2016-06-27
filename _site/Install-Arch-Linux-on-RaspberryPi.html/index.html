@@ -226,7 +226,7 @@ default first and last sector.</li>
   <li>
     <p>Mount the <strong>boot</strong> partition <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="p">\</span><span class="err">$</span><span class="p">((</span><span class="mi">2048</span> <span class="p">\</span><span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">104857600</span>
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="p">\</span><span class="err">$</span><span class="p">((</span><span class="mi">2048</span> <span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">104857600</span>
 <span class="n">arch</span><span class="p">.</span><span class="nf">img</span>
 </code></pre>
     </div>
@@ -234,7 +234,7 @@ default first and last sector.</li>
   <li>
     <p>Mount the <strong>root</strong> partition:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="p">\</span><span class="err">$</span><span class="p">((</span><span class="mi">206848</span> <span class="p">\</span><span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">1833959424</span>
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="p">\</span><span class="err">$</span><span class="p">((</span><span class="mi">206848</span> <span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">1833959424</span>
 <span class="n">arch</span><span class="p">.</span><span class="nf">img</span>
 
 <span class="n">sudo</span> <span class="n">fdisk</span> <span class="o">-</span><span class="n">l</span> <span class="sr">/dev/</span><span class="n">loop0</span>
@@ -281,7 +281,7 @@ default first and last sector.</li>
   <li>
     <p>Copy <strong>boot</strong> files:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">mv</span> <span class="n">root</span><span class="o">/</span><span class="n">boot</span><span class="o">/</span><span class="p">\</span><span class="o">*</span> <span class="n">boot</span>   
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">mv</span> <span class="n">root</span><span class="o">/</span><span class="n">boot</span><span class="o">/*</span> <span class="n">boot</span>   
 
 <span class="n">sync</span>   
 </code></pre>
@@ -311,7 +311,7 @@ default first and last sector.</li>
 
 <p>Now I copy it to my windows:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)"</span><span class="p">\</span><span class="no">PuTTY</span><span class="p">\</span><span class="n">pscp</span> <span class="n">pi</span><span class="err">@</span><span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">110</span><span class="ss">:/</span><span class="n">mnt</span><span class="o">/</span><span class="n">usbdrive</span><span class="o">/</span><span class="n">archlinux</span><span class="o">/**</span><span class="n">arch</span><span class="p">.</span><span class="nf">img</span><span class="o">**</span> <span class="s2">"C:</span><span class="se">\t</span><span class="s2">mp"</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)"</span><span class="p">\</span><span class="no">PuTTY</span><span class="p">\</span><span class="n">pscp</span> <span class="n">pi</span><span class="err">@</span><span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">110</span><span class="ss">:/</span><span class="n">mnt</span><span class="o">/</span><span class="n">usbdrive</span><span class="o">/</span><span class="n">archlinux</span><span class="o">/</span><span class="n">arch</span><span class="p">.</span><span class="nf">img</span> <span class="s2">"C:</span><span class="se">\t</span><span class="s2">mp"</span>
 </code></pre>
 </div>
 
