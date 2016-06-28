@@ -66,7 +66,7 @@ domain *yourdomain.com*.
 ### create a new repository on the command line
 
 ```ruby
-echo "\# Test2" &gt;&gt; README.md   
+echo "\# Test2" >> README.md   
 git init   
 git add README.md   
 git commit -m "first commit"   
