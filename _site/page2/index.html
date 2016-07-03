@@ -101,6 +101,10 @@
       
     
       
+        
+      
+    
+      
     
       
         
@@ -163,6 +167,174 @@
 			<div class="row">		  
 				<div class="container content">
 				  <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <!-- <a href="//From-Markdown-to-.odt-and-vice-versa.html/">  -->
+	  <a href="/From-Markdown-to-.odt-and-vice-versa.html/">
+        From Markdown to .odt and vice-versa
+      </a>
+    </h1>
+
+    <span class="post-date">29 May 2016</span>
+
+    <p>I wanto to convert complex documents for Markdown so they can be used
+here <strong>to write this blog</strong>. There are lots of ways, but i choose the following
+one.</p>
+
+<p>We need to have LibreOffice, pandoc, and a text editor.</p>
+
+<p>The process is this.</p>
+
+<ol>
+  <li>
+    <p>Create a .odt file in LibreOffice, using the following. The first
+ three items in the list <em>must</em> be applied using styles, i.e. from
+ “Styles and Formatting” &gt; “Paragraph Styles”:</p>
+
+    <ul>
+      <li>Headings—<em>not</em> Titles,</li>
+      <li>Preformatted Text (only works for block elements),</li>
+      <li>Quotations,</li>
+      <li>ordered and unordered lists,</li>
+      <li>hyperlinks,</li>
+      <li>italics and bold,</li>
+      <li>footnotes.</li>
+    </ul>
+  </li>
+  <li>Run   <strong><code class="highlighter-rouge">pandoc -s file.odt -t markdown -o file.md</code></strong></li>
+  <li>Edit the markdown <strong>file.md</strong> and correct every thing that seems wrong!!!
+  There is some markdown editors, i like to use <a href="http://markdownpad.com/">MarkdownPad2</a>.</li>
+</ol>
+
+<p>Test:</p>
+
+<h1 id="here-is-a-heading">Here is a heading</h1>
+
+<p>Here is some text. <em>Here is some italics</em>. <strong>Here is some bold</strong>. <a href="http://suttacentral.net/">Here
+is a link4</a>. Here is a footnote.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+
+<p>Here is some text. <em>Here is some italics</em>. <strong>Here is some bold</strong>. <a href="http://suttacentral.net/">Here
+is a link4</a>. Here is a footnote.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup></p>
+
+<p>Here is some text. <em>Here is some italics</em>. <strong>Here is some bold</strong>. <a href="http://suttacentral.net/">Here
+is a link4</a>. Here is a footnote.<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup></p>
+
+<h2 id="here-is-a-subheading">Here is a subheading</h2>
+
+<h3 id="here-is-a-subsubheading">Here is a subsubheading</h3>
+
+<h4 id="here-is-a-subsubsubheading">Here is a subsubsubheading</h4>
+
+<ul>
+  <li>Here is an unordered list.</li>
+  <li>Here is an unordered list.</li>
+  <li>Here is an unordered list.</li>
+</ul>
+
+<p>Here is some text. <em>Here is some italics</em>. <strong>Here is some bold</strong>. <a href="http://suttacentral.net/">Here
+is a link4</a>. Here is a footnote.<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup></p>
+
+<ol>
+  <li>Here is an ordered list.</li>
+  <li>Here is an ordered list.</li>
+  <li>Here is an ordered list.</li>
+</ol>
+
+<p><em>Here is some monospace text.</em></p>
+
+<blockquote>
+  <p>Here is a blockquote. Here is a blockquote.</p>
+</blockquote>
+
+<h2 id="pandoc">Pandoc</h2>
+
+<p>Pandoc is a general markup converter that can convert from one markup
+format to another. It can read <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, <a href="http://commonmark.org/">CommonMark</a>, <a href="https://michelf.ca/projects/php-markdown/extra/">PHP Markdown
+Extra</a>, <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub-Flavored Markdown</a>, and (subsets of) <a href="http://redcloth.org/textile">Textile</a>,
+<a href="http://docutils.sourceforge.net/docs/ref/rst/introduction.html">reStructuredText</a>, <a href="http://www.w3.org/html/">HTML</a>, <a href="http://latex-project.org/">LaTeX</a>),<a href="https://www.mediawiki.org/wiki/Help:Formatting">MediaWiki markup</a>,
+<a href="http://twiki.org/cgi-bin/view/TWiki/TextFormattingRules">TWiki markup</a>, <a href="https://www.haskell.org/haddock/doc/html/ch03s08.html">Haddock markup</a>, <a href="http://dev.opml.org/spec2.html">OPML</a>, <a href="http://orgmode.org/">Emacs Org
+mode</a>, <a href="http://docbook.org/">DocBook</a>, <a href="http://txt2tags.org/">txt2tags</a>), <a href="http://idpf.org/epub">EPUB</a>, <a href="http://en.wikipedia.org/wiki/OpenDocument">ODT</a> and <a href="http://www.microsoft.com/interop/openup/openxml/default.aspx">Word
+docx</a>;</p>
+
+<p>and it can write plain text, <a href="http://daringfireball.net/projects/markdown/">Markdown</a>, <a href="http://commonmark.org/">CommonMark</a>, <a href="https://michelf.ca/projects/php-markdown/extra/">PHP Markdown
+Extra</a>, <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub-Flavored Markdown</a>, <a href="http://docutils.sourceforge.net/docs/ref/rst/introduction.html">reStructuredText</a>, <a href="http://www.w3.org/TR/xhtml1/">XHTML</a>,
+<a href="http://www.w3.org/TR/html5/">HTML5</a>, <a href="http://latex-project.org/">LaTeX</a> (including <a href="https://ctan.org/pkg/beamer"><em>beamer</em></a> slide shows),
+<a href="http://contextgarden.net/">ConTeXt</a>, <a href="http://en.wikipedia.org/wiki/Rich_Text_Format">RTF</a>, <a href="http://dev.opml.org/spec2.html">OPML</a>, <a href="http://docbook.org/">DocBook</a>, <a href="http://opendocument.xml.org/">OpenDocument</a>, <a href="http://en.wikipedia.org/wiki/OpenDocument">ODT</a>, <a href="http://www.microsoft.com/interop/openup/openxml/default.aspx">Word docx</a>,
+<a href="http://www.gnu.org/software/texinfo/">GNU Texinfo</a>, <a href="https://www.mediawiki.org/wiki/Help:Formatting">MediaWiki markup</a>, <a href="https://www.dokuwiki.org/dokuwiki">DokuWiki markup</a>), <a href="https://www.haskell.org/haddock/doc/html/ch03s08.html">Haddock markup</a>,
+<a href="http://idpf.org/epub">EPUB</a> (v2 or v3), <a href="http://www.fictionbook.org/index.php/Eng:XML_Schema_Fictionbook_2.1">FictionBook2</a>, <a href="http://redcloth.org/textile">Textile</a>, <a href="http://developer.apple.com/DOCUMENTATION/Darwin/Reference/ManPages/man7/groff_man.7.html">groff man</a> pages, <a href="http://orgmode.org/">Emacs Org mode</a>, <a href="http://www.methods.co.nz/asciidoc/">AsciiDoc</a>, <a href="https://www.adobe.com/content/dam/Adobe/en/devnet/indesign/cs55-docs/IDML/idml-specification.pdf">InDesign ICML</a>, <a href="https://github.com/TEIC/TEI-Simple">TEI Simple</a>, and <a href="http://www.w3.org/Talks/Tools/Slidy/">Slidy</a>, <a href="http://goessner.net/articles/slideous/">Slideous</a>,
+<a href="http://paulrouget.com/dzslides/">DZSlides</a>, <a href="http://lab.hakim.se/reveal-js/">reveal.js</a> or <a href="http://meyerweb.com/eric/tools/s5/">S5</a> HTML slide shows. It can also
+produce <a href="https://www.adobe.com/pdf/">PDF</a> output on systems where LaTeX, ConTeXt, or <em>wkhtmltopdf</em> is installed.</p>
+
+<p><a href="http://pandoc.org/README.html">http://pandoc.org/README.html</a></p>
+
+<h3 id="using-pandoc">Using Pandoc</h3>
+
+<p>By default, pandoc produces a document fragment, not a standalone
+document with a proper header and footer. To produce a standalone
+document, use the <strong>-s</strong> or <strong><em>–standalone</em></strong> flag:</p>
+
+<p>To convert from markdown to Word docx:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="no">S</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">docx</span>
+</code></pre>
+</div>
+
+<p>To convert from Word docx to markdown:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">f</span> <span class="n">docx</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="n">foo</span><span class="p">.</span><span class="nf">docx</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="p">.</span><span class="nf">markdown</span>
+</code></pre>
+</div>
+
+<p>To convert markdown to PDF:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">pdf</span>
+</code></pre>
+</div>
+
+<p><strong>To convert from .odt to markdown:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="n">file</span><span class="p">.</span><span class="nf">odt</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="o">-</span><span class="n">o</span> <span class="n">file</span><span class="p">.</span><span class="nf">md</span>
+</code></pre>
+</div>
+
+<p><strong>To convert from markdown to .ODT (OpenDocument Text):</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">odt</span>
+</code></pre>
+</div>
+
+<p>See: *<a href="http://pandoc.org/demos.html"><em>http://pandoc.org/demos.html</em></a></p>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="https://writers.stackexchange.com/questions/9056/from-markdown-to-odt-and-vice-versa-a-possible-">https://writers.stackexchange.com/questions/9056/from-markdown-to-odt-and-vice-versa-a-possible-</a></li>
+  <li><a href="https://writers.stackexchange.com/questions/9056/from-markdown-to-odt-and-vice-versa-a-possible-distraction-free-writing-workfl">distraction-free-writing-workfl</a></li>
+  <li><a href="http://extensions.libreoffice.org/extension-center/texmaths-1">http://extensions.libreoffice.org/extension-center/texmaths-1</a></li>
+  <li><a href="http://extensions.libreoffice.org/extension-center/writer2latex-1">http://extensions.libreoffice.org/extension-center/writer2latex-1</a></li>
+  <li><a href="https://discourse.suttacentral.net/t/converting-from-word-processor-to-markdown/21">https://discourse.suttacentral.net/t/converting-from-word-processor-to-markdown/21</a></li>
+  <li><a href="https://www.garron.me/en/blog/switching-to-markdown-no-word-processors-anymore.html">Markdown instead of Word Processors</a></li>
+</ul>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Here is a footnote. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>Here is a footnote. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>Here is a footnote. <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>Here is a footnote. <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div>
   
   <div class="post">
     <h1 class="post-title">
@@ -351,29 +523,11 @@ file. For example, if you previously had this:</p>
 
   </div>
   
-  <div class="post">
-    <h1 class="post-title">
-      <!-- <a href="//Hello-World.html/">  -->
-	  <a href="/Hello-World.html/">
-        You're up and running!
-      </a>
-    </h1>
-
-    <span class="post-date">25 May 2016</span>
-
-    <p>Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).</p>
-
-<p><img src="/images/config.png" alt="_config.yml" /></p>
-
-<p>The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the <a href="https://github.com/barryclark/jekyll-now">Jekyll Now repository</a> on GitHub.</p>
-
-  </div>
-  
 </div>
 
 <div class="pagination">
   
-    <span class="pagination-item older">Older</span>
+    <a class="pagination-item older" href="/page3">Older</a>
   
   
     

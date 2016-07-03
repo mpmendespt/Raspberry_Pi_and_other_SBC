@@ -7,6 +7,269 @@
     <atom:link href="http://mpmendespt.ddns.net//feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Use USB hard disk &amp; flash drives with Raspberry Pi</title>
+        <description>&lt;p&gt;Here we have a summary of the commands on how to mount a USB drive on
+Raspberry.&lt;/p&gt;
+
+&lt;h2 id=&quot;connecting-and-mounting-a-usb-drive&quot;&gt;Connecting and Mounting a USB Drive&lt;/h2&gt;
+
+&lt;p&gt;After inserting a USB drive you will need to manually mount the device
+in order to use it as additional USB storage for Raspberry Pi.&lt;/p&gt;
+
+&lt;p&gt;To reveal the correct name for the USB device:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;da&lt;/span&gt;  &lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;da1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;If there is no partitions on device the result can be:&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;da&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;create-a-partition-on-the-divice&quot;&gt;Create a partition on the divice:&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fdisk&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;da&lt;/span&gt;
+
+
+&lt;span class=&quot;no&quot;&gt;Command&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Disk&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;da: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GiB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31750881280&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;62013440&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sectors&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Units&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sectors&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Sector&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logical&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;physical&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;O&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minimum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optimal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Disklabel&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;type: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dos&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Disk&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;identifier: &lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0xe85e0063&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Command&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Partition&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;
+
+ &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;primary&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;primary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;extended&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;free&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+ &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;extended&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logical&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;partitions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Select&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Partition&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;First&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sector&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2048&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;62013439&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2048&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Last&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sectors&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;P&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2048&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;62013439&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;62013439&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Created&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;partition&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Linux&#39;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GiB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Command&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Disk&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;da: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GiB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31750881280&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;62013440&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sectors&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Units&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sectors&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Sector&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logical&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;physical&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;O&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minimum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;optimal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Disklabel&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;type: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dos&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Disk&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;identifier: &lt;/span&gt;&lt;span class=&quot;mh&quot;&gt;0xe85e0063&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Device&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Boot&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Start&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Sectors&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Size&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Id&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Type&lt;/span&gt;
+
+&lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;da1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2048&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;62013439&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;62011392&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;G&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;83&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Linux&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Command&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;The&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;partition&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;been&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;altered&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Calling&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ioctl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;partition&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Syncing&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Now, fdisk -l, will show the created partition&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fdisk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Device&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Boot&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Start&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Sectors&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Size&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Id&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Type&lt;/span&gt;
+
+&lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;da1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2048&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;62013439&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;62011392&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;G&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;83&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Linux&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;to-list-your-file-systems&quot;&gt;To list your file systems:&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;sudo fdisk -l &lt;br /&gt;
+sudo mount -l &lt;br /&gt;
+df -h&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;format-a-drive-to-ext4&quot;&gt;Format a drive to EXT4&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;sudo mkfs.ext4 /dev/sda1 -L untitled&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;add-apple-os-x-hfs-readwrite-support&quot;&gt;Add Apple OS X HFS+ read/write support&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;sudo apt-get install hfsutils hfsprogs hfsutils&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;format-a-drive-to-hfs&quot;&gt;Format a drive to HFS+&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;sudo mkfs.hfsplus /dev/sda1 -v untitled&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;add-windows-ntfs-readwrite-support&quot;&gt;Add Windows NTFS read/write support&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;sudo apt-get install ntfs-3g&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;format-a-drive-to-ntfs&quot;&gt;Format a drive to NTFS&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;sudo mkfs.ntfs /dev/sda1 -f -v -I -L untitled&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;add-windowsdos-fat32-readwrite-support&quot;&gt;Add Windows/DOS FAT32 read/write support&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;sudo apt-get install dosfstools&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;format-a-drive-to-fat32&quot;&gt;Format a drive to FAT32&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;sudo mkfs.vfat /dev/sda1 -n untitled&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;we-choose-ext4-so-format-a-drive-to-ext4&quot;&gt;We choose EXT4, so Format a drive to EXT4:&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mkfs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ext4&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;da1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;L&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;untitled&lt;/span&gt;
+
+
+
+&lt;span class=&quot;n&quot;&gt;mke2fs&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Aug&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2014&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Creating&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filesystem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7751424&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blocks&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1941504&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inodes&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Filesystem&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;UUID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dc1e005&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;05&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a7a0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;325&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c204f67a9&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Superblock&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;backups&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stored&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;blocks:
+
+ &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32768&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;98304&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;163840&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;229376&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;294912&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;819200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;884736&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1605632&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2654208&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4096000&lt;/span&gt;
+
+
+
+&lt;span class=&quot;no&quot;&gt;Allocating&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;tables: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Writing&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inode&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;tables: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Creating&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;journal&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32768&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blocks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Writing&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;superblocks&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filesystem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;accounting&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;information: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;to-mount-a-usb-drive&quot;&gt;To mount a USB drive:&lt;/h3&gt;
+
+&lt;p&gt;Create the mount point:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/mnt/us&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bdrive&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;now-connect-the-device-to-its-mount-point&quot;&gt;Now connect the device to its mount point:&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mount&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;da1&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/mnt/us&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bdrive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/mnt/us&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bdrive&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Filesystem&lt;/span&gt;      &lt;span class=&quot;no&quot;&gt;Size&lt;/span&gt;  &lt;span class=&quot;no&quot;&gt;Used&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Avail&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Use&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Mounted&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;
+
+&lt;span class=&quot;sr&quot;&gt;/dev/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;        &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;G&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;G&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;G&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/
+devtmpfs        459M     0  459M   0% /&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tmpfs&lt;/span&gt;           &lt;span class=&quot;mi&quot;&gt;463&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;     &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;463&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hm&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tmpfs&lt;/span&gt;           &lt;span class=&quot;mi&quot;&gt;463&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;446&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/run
+tmpfs           5.0M  4.0K  5.0M   1% /&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lock&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;tmpfs&lt;/span&gt;           &lt;span class=&quot;mi&quot;&gt;463&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;     &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;463&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/sys/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cgroup&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;/dev/mm&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cblk0p1&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;63&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;43&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;33&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/boot
+/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sda1&lt;/span&gt;        &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;G&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;44&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;M&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;G&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/mnt/us&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bdrive&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;now-we-need-to-make-sure-the-pi-user-owns-this-folder&quot;&gt;Now we need to make sure the Pi user owns this folder:&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;R&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pi&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:pi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usbdrive&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;test&quot;&gt;Test:&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/mnt/us&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bdrive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/mnt/us&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bdrive&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;drwx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pi&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pi&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16384&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Jul&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;52&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lost&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;found&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pi&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pi&lt;/span&gt;     &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Jul&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;before-disconnecting-a-usb-drive&quot;&gt;Before disconnecting a USB drive:&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;umount&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;da1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;You don’t need to manually un-mount if you shutdown your Pi but if you
+need to remove the drive at any other time you should un-mount it first.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;auto-mount&quot;&gt;Auto Mount&lt;/h3&gt;
+
+&lt;p&gt;If we want the USB drive to be mounted when the system starts we can
+edit the fstab file:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nano&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/etc/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fstab&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then add the following line at the end :&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;/dev/sda1 /mnt/usbdrive ext4 defaults,noatime 0 1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#/etc/fstab&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/proc proc defaults 0 0
+/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mmcblk0p1&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/boot vfat defaults 0 2
+/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mmcblk0p2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ext4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;noatime&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# a swapfile is not a swap partition, no line here&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# use dphys-swapfile swap\[on|off\] for that&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;da1&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/mnt/us&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bdrive&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ext4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defaults&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;noatime&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The drive will mount at boot if it is attached to the Pi. If you want to mount the drive after you have plugged it in, use mount with the -a option.
+Which mean: Mount  all  filesystems  (of the given types) mentioned in fstab.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://devtidbits.com/2013/03/21/using-usb-external-hard-disk-flash-drives-with-to-your-raspberry-pi/&quot;&gt;https://devtidbits.com/2013/03/21/using-usb-external-hard-disk-flash-drives-with-to-your-raspberry-pi/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.makeuseof.com/tag/how-to-add-usb-storage-to-the-raspberry-pi/&quot;&gt;http://www.makeuseof.com/tag/how-to-add-usb-storage-to-the-raspberry-pi/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.raspberrypi-spy.co.uk/2014/05/how-to-mount-a-usb-flash-disk-on-the-raspberry-pi/&quot;&gt;http://www.raspberrypi-spy.co.uk/2014/05/how-to-mount-a-usb-flash-disk-on-the-raspberry-pi/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://thepihut.com/blogs/raspberry-pi-tutorials/17699796-formatting-and-mounting-a-usb-drive-from-a-terminal-window&quot;&gt;https://thepihut.com/blogs/raspberry-pi-tutorials/17699796-formatting-and-mounting-a-usb-drive-from-a-terminal-window&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.raspberrypi-spy.co.uk/2014/05/how-to-mount-a-usb-flash-disk-on-the-raspberry-pi/&quot;&gt;http://www.raspberrypi-spy.co.uk/2014/05/how-to-mount-a-usb-flash-disk-on-the-raspberry-pi/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://vicpimakers.ca/tutorials/raspberry-pi/usb-hard-disk-or-flash-drive-with-raspberry-pi/&quot;&gt;https://vicpimakers.ca/tutorials/raspberry-pi/usb-hard-disk-or-flash-drive-with-raspberry-pi/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 03 Jul 2016 00:00:00 +0100</pubDate>
+        <link>http://mpmendespt.ddns.net//Use-USB-drive-with-Raspberry-Pi.html/</link>
+        <guid isPermaLink="true">http://mpmendespt.ddns.net//Use-USB-drive-with-Raspberry-Pi.html/</guid>
+      </item>
+    
+      <item>
         <title>Using a custom domain with GitHub Pages</title>
         <description>&lt;p&gt;Setup custom domain on the user page and then all the project pages of
 Github repositories will automatically appear under the same url.&lt;/p&gt;

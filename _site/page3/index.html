@@ -11,7 +11,7 @@
 
   <title>
     
-      Install Arch Linux on Raspberry Pi &middot; Raspberry Pi and other SBC
+      Raspberry Pi and other SBC &middot; 
     
   </title>
    
@@ -166,253 +166,40 @@
 			</div> <!--   row  -->
 			<div class="row">		  
 				<div class="container content">
-				  <div class="post">
-  <h1 class="post-title">Install Arch Linux on Raspberry Pi</h1>
-  <span class="post-date">17 Jun 2016</span>
-  <p>Currently neither <a href="https://www.raspberrypi.org/">Raspberry Pi</a> nor the
-<a href="http://archlinuxarm.org/">Arch Linux ARM</a> website offer an image ready
-for use of Arch Linux for Raspberry Pi. So i followed this steps on
-Linux (in my case another Raspberry with a USB Pen Drive):</p>
+				  <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <!-- <a href="//Hello-World.html/">  -->
+	  <a href="/Hello-World.html/">
+        You're up and running!
+      </a>
+    </h1>
 
-<ol>
-  <li>
-    <p>Download the image for Raspberry Pi (ARM).</p>
+    <span class="post-date">25 May 2016</span>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">wget</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">archlinuxarm</span><span class="p">.</span><span class="nf">org</span><span class="o">/</span><span class="n">os</span><span class="o">/</span><span class="no">ArchLinuxARM</span><span class="o">-</span><span class="n">rpi</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">latest</span><span class="p">.</span><span class="nf">tar</span><span class="p">.</span><span class="nf">gz</span>
-</code></pre>
-    </div>
-  </li>
-  <li>
-    <p>Create a image file of 2GB:</p>
+    <p>Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">dd</span> <span class="k">if</span><span class="o">=</span><span class="sr">/dev/</span><span class="n">zero</span> <span class="n">of</span><span class="o">=</span><span class="n">arch</span><span class="p">.</span><span class="nf">img</span> <span class="n">bs</span><span class="o">=</span><span class="mi">1</span><span class="no">M</span> <span class="n">count</span><span class="o">=</span><span class="mi">1850</span>
+<p><img src="/images/config.png" alt="_config.yml" /></p>
 
-<span class="n">count</span><span class="o">=</span><span class="mi">1850</span>   
-<span class="mi">1850</span><span class="o">+</span><span class="mi">0</span> <span class="n">records</span> <span class="k">in</span>   
-<span class="mi">1850</span><span class="o">+</span><span class="mi">0</span> <span class="n">records</span> <span class="n">out</span>   
-<span class="mi">1939865600</span> <span class="n">bytes</span> <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">9</span> <span class="no">GB</span><span class="p">,</span> <span class="mi">1</span><span class="o">.</span><span class="mi">8</span> <span class="no">GiB</span><span class="p">)</span> <span class="n">copied</span><span class="p">,</span> <span class="mi">53</span><span class="o">.</span><span class="mi">2323</span> <span class="n">s</span><span class="p">,</span> <span class="mi">36</span><span class="o">.</span><span class="mi">4</span> <span class="no">MB</span><span class="o">/</span><span class="n">s</span>
-</code></pre>
-    </div>
-  </li>
-  <li>
-    <p><a href="https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3">Partition the image file</a>:</p>
+<p>The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the <a href="https://github.com/barryclark/jekyll-now">Jekyll Now repository</a> on GitHub.</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">fdisk</span> <span class="n">arch</span><span class="p">.</span><span class="nf">img</span>
-</code></pre>
-    </div>
-
-    <ol>
-      <li>Type <strong>o</strong>. This will clear out any partitions on the drive.</li>
-      <li>Type <strong>p</strong> to list partitions. There should be
-no partitions left.</li>
-      <li>Type <strong>n</strong>, then <strong>p</strong> for primary, <strong>1</strong> for the first
-partition on the drive, press ENTER to accept the default first
-sector, then type <strong>+100M</strong> for the last sector.</li>
-      <li>Type <strong>t</strong>, then <strong>c</strong> to set the first partition to type W95
-FAT32 (LBA).</li>
-      <li>Type <strong>n</strong>, then <strong>p</strong> for primary, <strong>2</strong> for the second
-partition on the drive, and then press ENTER twice to accept the
-default first and last sector.</li>
-      <li>Write the partition table and exit by typing <strong>w</strong>.</li>
-    </ol>
-  </li>
-  <li>
-    <p>Check the partitions created:</p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">fdisk</span> <span class="o">-</span><span class="n">l</span> <span class="n">arch</span><span class="p">.</span><span class="nf">img</span>    
-	
-<span class="no">Device</span> <span class="no">Boot</span> <span class="no">Start</span> <span class="no">End</span> <span class="no">Sectors</span> <span class="no">Size</span> <span class="no">Id</span> <span class="no">Type</span>   
-<span class="n">arch</span><span class="p">.</span><span class="nf">img1</span> <span class="mi">2048</span> <span class="mi">206847</span> <span class="mi">204800</span> <span class="mi">100</span><span class="no">M</span> <span class="n">c</span> <span class="no">W95</span> <span class="no">FAT32</span> <span class="p">(</span><span class="no">LBA</span><span class="p">)</span>    
-<span class="n">arch</span><span class="p">.</span><span class="nf">img2</span> <span class="mi">206848</span> <span class="mi">3788799</span> <span class="mi">3581952</span> <span class="mi">1</span><span class="o">.</span><span class="mi">7</span><span class="no">G</span> <span class="mi">83</span> <span class="no">Linux</span>
-</code></pre>
-    </div>
-  </li>
-  <li>
-    <p>Mount the <strong>boot</strong> partition <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>:</p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="p">\</span><span class="err">$</span><span class="p">((</span><span class="mi">2048</span> <span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">104857600</span>
-<span class="n">arch</span><span class="p">.</span><span class="nf">img</span>
-</code></pre>
-    </div>
-  </li>
-  <li>
-    <p>Mount the <strong>root</strong> partition:</p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="p">\</span><span class="err">$</span><span class="p">((</span><span class="mi">206848</span> <span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">1833959424</span>
-<span class="n">arch</span><span class="p">.</span><span class="nf">img</span>
-
-<span class="n">sudo</span> <span class="n">fdisk</span> <span class="o">-</span><span class="n">l</span> <span class="sr">/dev/</span><span class="n">loop0</span>
-
-<span class="no">Disk</span> <span class="sr">/dev/</span><span class="ss">loop0: </span><span class="mi">100</span> <span class="no">MiB</span><span class="p">,</span> <span class="mi">104857600</span> <span class="n">bytes</span><span class="p">,</span> <span class="mi">204800</span> <span class="n">sectors</span>    
-
-<span class="n">sudo</span> <span class="n">fdisk</span> <span class="o">-</span><span class="n">l</span> <span class="sr">/dev/</span><span class="n">loop1</span>    
-
-<span class="no">Disk</span> <span class="sr">/dev/</span><span class="ss">loop1: </span><span class="mi">1</span><span class="o">.</span><span class="mi">7</span> <span class="no">GiB</span><span class="p">,</span> <span class="mi">1833959424</span> <span class="n">bytes</span><span class="p">,</span> <span class="mi">3581952</span> <span class="n">sectors</span>
-</code></pre>
-    </div>
-  </li>
-  <li>
-    <p>Format and mount <strong>boot</strong> partition</p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">mkfs</span><span class="p">.</span><span class="nf">vfat</span> <span class="sr">/dev/</span><span class="n">loop0</span>
-
-<span class="n">mkdir</span> <span class="n">boot</span>
-
-<span class="n">sudo</span> <span class="n">mount</span> <span class="sr">/dev/</span><span class="n">loop0</span> <span class="n">boot</span>
-</code></pre>
-    </div>
-  </li>
-  <li>
-    <p>Format and mount <strong>root</strong> partition</p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">mkfs</span><span class="p">.</span><span class="nf">ext4</span> <span class="sr">/dev/</span><span class="n">loop1</span>
-
-<span class="n">mkdir</span> <span class="n">root</span>
-
-<span class="n">sudo</span> <span class="n">mount</span> <span class="sr">/dev/</span><span class="n">loop1</span> <span class="n">root</span>
-</code></pre>
-    </div>
-  </li>
-  <li>
-    <p>Extract <strong>image</strong> files:</p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">bsdtar</span> <span class="o">-</span><span class="n">xpf</span> <span class="no">ArchLinuxARM</span><span class="o">-</span><span class="n">rpi</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">latest</span><span class="p">.</span><span class="nf">tar</span><span class="p">.</span><span class="nf">gz</span> <span class="o">-</span><span class="no">C</span> <span class="n">root</span>
-
-<span class="n">sync</span>
-</code></pre>
-    </div>
-  </li>
-  <li>
-    <p>Copy <strong>boot</strong> files:</p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">mv</span> <span class="n">root</span><span class="o">/</span><span class="n">boot</span><span class="o">/*</span> <span class="n">boot</span>   
-
-<span class="n">sync</span>   
-</code></pre>
-    </div>
-  </li>
-  <li>
-    <p>Unmount partitions:</p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">umount</span> <span class="n">boot</span> <span class="n">root</span>
-
-<span class="n">rmdir</span> <span class="n">boot</span> <span class="n">root</span>
-</code></pre>
-    </div>
-  </li>
-  <li>
-    <p>Detach partitions:</p>
-
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">d</span> <span class="sr">/dev/</span><span class="n">loop0</span>
-
-<span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">d</span> <span class="sr">/dev/</span><span class="n">loop1</span>
-</code></pre>
-    </div>
-  </li>
-</ol>
-
-<p>The image is ready!!</p>
-
-<p>Now I copy it to my windows:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)"</span><span class="p">\</span><span class="no">PuTTY</span><span class="p">\</span><span class="n">pscp</span> <span class="n">pi</span><span class="err">@</span><span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">110</span><span class="ss">:/</span><span class="n">mnt</span><span class="o">/</span><span class="n">usbdrive</span><span class="o">/</span><span class="n">archlinux</span><span class="o">/</span><span class="n">arch</span><span class="p">.</span><span class="nf">img</span> <span class="s2">"C:</span><span class="se">\t</span><span class="s2">mp"</span>
-</code></pre>
+  </div>
+  
 </div>
 
-<p>Then we can write it on SD card with
-<a href="https://sourceforge.net/projects/win32diskimager/">Win32DiskImager</a>
-utility.</p>
-
-<p><img src="/images/Win32DiskImager.png" alt="" /></p>
-
-<p>Insert the SD card into the Raspberry Pi, connect ethernet, and apply 5V
-power.</p>
-
-<ul>
-  <li>Login as the default user <strong><em>alarm</em></strong> with the password <strong><em>alarm</em></strong>.</li>
-  <li>The default root password is <strong><em>root</em></strong>.</li>
-</ul>
-
-<h3 id="references">References</h3>
-
-<ul>
-  <li><a href="http://blog.schertel.co/posts/2015/08/arch-linux-arm-image-for-raspberry-pi/">http://blog.schertel.co/posts/2015/08/arch-linux-arm-image-for-raspberry-pi/</a></li>
-  <li><a href="http://elinux.org/ArchLinux_Install_Guide">http://elinux.org/ArchLinux_Install_Guide</a></li>
-</ul>
-
-<div class="footnotes">
-  <ol>
-    <li id="fn:1">
-      <p><a href="https://unix.stackexchange.com/questions/72443/cannot-mount-img-file-not-a-directory-error/72449#72449">https://unix.stackexchange.com/questions/72443/cannot-mount-img-file-not-a-directory-error/72449#72449</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
-    </li>
-  </ol>
+<div class="pagination">
+  
+    <span class="pagination-item older">Older</span>
+  
+  
+    
+      <a class="pagination-item newer" href="/page2">Newer</a>
+    
+  
 </div>
 
-  <!--  twitter  -->
-  If you liked this post, you can
-<a href="https://twitter.com/intent/tweet?url=http://mpmendespt.ddns.net//Install-Arch-Linux-on-RaspberryPi.html/&text=Install Arch Linux on Raspberry Pi&via=mpmendespt" 
-   target="_blank">
-  share it with your followers</a> 
-or 
-<a href="https://twitter.com/mpmendespt">
-  follow me on Twitter</a>!
-  </br></br>
-  <!-- Post comments -->
-  <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */ 
-	var disqus_config = function () {
-	this.page.url = "https://mpmendespt.ddns.net/Install-Arch-Linux-on-RaspberryPi.html/"; // <--- use canonical URL
-	this.page.identifier = "/Install-Arch-Linux-on-RaspberryPi";
-	};
-	(function() { // DON'T EDIT BELOW THIS LINE
-	var d = document, s = d.createElement('script');
-	
-	s.src = '//raspberrypi-sbc.disqus.com/embed.js'; // <--- use Disqus shortname
-	
-	s.setAttribute('data-timestamp', +new Date());
-	(d.head || d.body).appendChild(s);
-	})();
-	</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
-
-  <!--  **************  -->
-</div>
-
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/Use-USB-drive-with-Raspberry-Pi.html/">
-            Use USB hard disk & flash drives with Raspberry Pi
-            <small>03 Jul 2016</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/Using-a-custom-domain-with-GitHub-Pages.html/">
-            Using a custom domain with GitHub Pages
-            <small>25 Jun 2016</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/">
-            Dynamic DNS on Raspberry Pi
-            <small>03 Jun 2016</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</div>
 
 				  
 				  <!--  *****comments****  -->
