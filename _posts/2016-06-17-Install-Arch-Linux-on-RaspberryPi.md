@@ -58,14 +58,14 @@ Linux (in my case another Raspberry with a USB Pen Drive):
 5.  Mount the **boot** partition [^1]:
 
     ```ruby
-	sudo losetup -v -f -o \$((2048 * 512)) --sizelimit 104857600
+	sudo losetup -v -f -o $((2048 * 512)) --sizelimit 104857600
     arch.img
 	```
 
 6.  Mount the **root** partition:
 
     ```ruby
-	sudo losetup -v -f -o \$((206848 * 512)) --sizelimit 1833959424
+	sudo losetup -v -f -o $((206848 * 512)) --sizelimit 1833959424
     arch.img
 
     sudo fdisk -l /dev/loop0

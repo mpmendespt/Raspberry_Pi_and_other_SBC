@@ -230,7 +230,7 @@ default first and last sector.</li>
   <li>
     <p>Mount the <strong>boot</strong> partition <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="p">\</span><span class="err">$</span><span class="p">((</span><span class="mi">2048</span> <span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">104857600</span>
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="p">((</span><span class="mi">2048</span> <span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">104857600</span>
 <span class="n">arch</span><span class="p">.</span><span class="nf">img</span>
 </code></pre>
     </div>
@@ -238,7 +238,7 @@ default first and last sector.</li>
   <li>
     <p>Mount the <strong>root</strong> partition:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="p">\</span><span class="err">$</span><span class="p">((</span><span class="mi">206848</span> <span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">1833959424</span>
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="p">((</span><span class="mi">206848</span> <span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">1833959424</span>
 <span class="n">arch</span><span class="p">.</span><span class="nf">img</span>
 
 <span class="n">sudo</span> <span class="n">fdisk</span> <span class="o">-</span><span class="n">l</span> <span class="sr">/dev/</span><span class="n">loop0</span>

@@ -271,6 +271,5 @@ sudo mount -a
 - <https://devtidbits.com/2013/03/21/using-usb-external-hard-disk-flash-drives-with-to-your-raspberry-pi/>   
 - <http://www.makeuseof.com/tag/how-to-add-usb-storage-to-the-raspberry-pi/>   
 - <http://www.raspberrypi-spy.co.uk/2014/05/how-to-mount-a-usb-flash-disk-on-the-raspberry-pi/>   
-- <https://thepihut.com/blogs/raspberry-pi-tutorials/17699796-formatting-and-mounting-a-usb-drive-from-a-terminal-window>   
-- <http://www.raspberrypi-spy.co.uk/2014/05/how-to-mount-a-usb-flash-disk-on-the-raspberry-pi/>   
+- <https://thepihut.com/blogs/raspberry-pi-tutorials/17699796-formatting-and-mounting-a-usb-drive-from-a-terminal-window>      
 - <https://vicpimakers.ca/tutorials/raspberry-pi/usb-hard-disk-or-flash-drive-with-raspberry-pi/>   
