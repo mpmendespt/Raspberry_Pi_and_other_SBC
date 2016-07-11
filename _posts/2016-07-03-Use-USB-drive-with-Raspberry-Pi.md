@@ -156,8 +156,7 @@ Filesystem UUID: 1dc1e005-05d8-42c1-a7a0-325c204f67a9
 
 Superblock backups stored on blocks:
 
- 32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632,
-2654208, 4096000
+ 32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 4096000
 
 
 
@@ -171,7 +170,7 @@ Writing superblocks and filesystem accounting information: done
 ```
 
 
-### To mount a USB drive:
+## To mount a USB drive:
 
 Create the mount point:
 
@@ -179,7 +178,7 @@ Create the mount point:
 sudo mkdir /mnt/usbdrive
 ```
 
-#### Now connect the device to its mount point:
+### Now connect the device to its mount point:
 
 ```ruby
 sudo mount /dev/sda1 /mnt/usbdrive\
@@ -203,7 +202,7 @@ tmpfs           463M     0  463M   0% /sys/fs/cgroup
 ```
 
 
-#### Now we need to make sure the Pi user owns this folder:
+### Now we need to make sure the Pi user owns this folder:    
 
 ```ruby
 sudo chown -R pi:pi /mnt/usbdrive

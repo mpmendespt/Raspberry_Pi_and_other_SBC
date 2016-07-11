@@ -31,6 +31,9 @@
   <link rel="stylesheet" href="/public/css/syntax.css">
   <link rel="stylesheet" href="/public/css/lanyon.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/main.css">   <!-- CSS from _scss -->
+  <!-- CSS -->
 
 
   <!-- Icons -->
@@ -39,6 +42,7 @@
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <!--  ----  -->
 </head>
 
 
@@ -102,6 +106,8 @@
     
       
         
+      
+    
       
     
       
@@ -323,8 +329,7 @@ df -h</em></p>
 
 <span class="no">Superblock</span> <span class="n">backups</span> <span class="n">stored</span> <span class="n">on</span> <span class="ss">blocks:
 
- </span><span class="mi">32768</span><span class="p">,</span> <span class="mi">98304</span><span class="p">,</span> <span class="mi">163840</span><span class="p">,</span> <span class="mi">229376</span><span class="p">,</span> <span class="mi">294912</span><span class="p">,</span> <span class="mi">819200</span><span class="p">,</span> <span class="mi">884736</span><span class="p">,</span> <span class="mi">1605632</span><span class="p">,</span>
-<span class="mi">2654208</span><span class="p">,</span> <span class="mi">4096000</span>
+ </span><span class="mi">32768</span><span class="p">,</span> <span class="mi">98304</span><span class="p">,</span> <span class="mi">163840</span><span class="p">,</span> <span class="mi">229376</span><span class="p">,</span> <span class="mi">294912</span><span class="p">,</span> <span class="mi">819200</span><span class="p">,</span> <span class="mi">884736</span><span class="p">,</span> <span class="mi">1605632</span><span class="p">,</span> <span class="mi">2654208</span><span class="p">,</span> <span class="mi">4096000</span>
 
 
 
@@ -338,7 +343,7 @@ df -h</em></p>
 </code></pre>
 </div>
 
-<h3 id="to-mount-a-usb-drive">To mount a USB drive:</h3>
+<h2 id="to-mount-a-usb-drive">To mount a USB drive:</h2>
 
 <p>Create the mount point:</p>
 
@@ -346,7 +351,7 @@ df -h</em></p>
 </code></pre>
 </div>
 
-<h4 id="now-connect-the-device-to-its-mount-point">Now connect the device to its mount point:</h4>
+<h3 id="now-connect-the-device-to-its-mount-point">Now connect the device to its mount point:</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">mount</span> <span class="sr">/dev/s</span><span class="n">da1</span> <span class="sr">/mnt/us</span><span class="n">bdrive</span><span class="p">\</span>
 <span class="n">ls</span> <span class="sr">/mnt/us</span><span class="n">bdrive</span>
@@ -368,7 +373,7 @@ tmpfs           5.0M  4.0K  5.0M   1% /</span><span class="n">run</span><span cl
 </code></pre>
 </div>
 
-<h4 id="now-we-need-to-make-sure-the-pi-user-owns-this-folder">Now we need to make sure the Pi user owns this folder:</h4>
+<h3 id="now-we-need-to-make-sure-the-pi-user-owns-this-folder">Now we need to make sure the Pi user owns this folder:</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">chown</span> <span class="o">-</span><span class="no">R</span> <span class="n">pi</span><span class="ss">:pi</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">usbdrive</span>
 </code></pre>

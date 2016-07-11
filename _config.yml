@@ -15,18 +15,11 @@ avatar: /images/eu_4.jpg
 
 title: Raspberry Pi and other SBC
 
-##############
-gems: ['jekyll-github-metadata']
-###
 
 #
-repository: mpmendespt/repo-name
-#
-###
-gems: [jekyll-coffeescript, jekyll-watch, jekyll-assets]
- # This will require each of these gems automatically.
- #gem install jekyll-coffeescript jekyll-watch jekyll-assets
-# #######################################
+repository: mpmendespt/Raspberry_Pi_and_other_SBC
+#  Raspberry_Pi_and_other_SBC
+#######################################
 #url: http://mpmendespt.github.io/
 #shorturl:  mpmendespt.github.io
 url:  http://mpmendespt.ddns.net/
@@ -50,12 +43,18 @@ permalink:  /:title.html/
 #encoding: utf-8    # Set in Nginx!!!!
 
 #
-# Here is a part of _config.yml which is changed in Jekyll 3.
-gems:   [jekyll-paginate, jekyll-gist, redcarpet]
-gems:   [pygments.rb]
-#
-#gems:
-#  - jekyll-sitemap
+# Gems
+gems: [jekyll-paginate, jekyll-gist, redcarpet]
+gems: [pygments.rb]
+#gems: [jekyll-coffeescript, jekyll-watch, jekyll-assets]
+gems: [jekyll-watch]
+#gems: ['jekyll-github-metadata']
+# Jekyll SEO tag plugin
+#  gems: [jekyll-seo-tag]
+#gems: [jekyll-paginate]
+#gems: 'kramdown'
+#gems: 'coderay'
+gems:  [jekyll-sitemap]
 
 #gems:   ['wdm', '>= 0.1.0']
 # ^^ Here is a part of _config.yml which is changed in Jekyll 3.
@@ -97,8 +96,7 @@ kramdown:
 #  syntax_highlighter: rouge
 # Build settings
 ################
-#gems: 'kramdown'
-#gems: 'coderay'
+
 #markdown: kramdown
 #kramdown:
 #    enable_coderay: true
@@ -132,10 +130,29 @@ version: v3.1.6
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://raw.githubusercontent.com/mpmendespt/mpmendespt.github.io/master/images/HPIM7262.jpg
-  
-# Gems
-gems: [jekyll-paginate]
-  
+
+#############################################################
+# Set the Sass partials directory, as we're using @imports
+sass:
+  sass_dir: _scss
+  style: :expanded # You might prefer to minify using :compressed
+  #these styles are just for code blocks i think
+  #http://web-design-weekly.com/2014/06/15/different-sass-output-styles/
+
+##########################
+### template colors, used site-wide via css ###
+colors:
+  black:     '#111111'
+  white:     '#f8f8f8'
+  blue:      '#49a7e9'
+  green:     '#9bcf2f'
+  purple:    '#c869bf'
+  orange:    '#fab125'
+  turquoise: '#0fbfcf'
+  primary: #65457e
+  secondary: #13a7c7
+  secondary-dark: #123677
+   
   
 #
 # Flags below are optional

@@ -153,8 +153,7 @@ df -h&lt;/em&gt;&lt;/p&gt;
 
 &lt;span class=&quot;no&quot;&gt;Superblock&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;backups&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stored&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;blocks:
 
- &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32768&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;98304&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;163840&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;229376&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;294912&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;819200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;884736&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1605632&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;2654208&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4096000&lt;/span&gt;
+ &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32768&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;98304&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;163840&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;229376&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;294912&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;819200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;884736&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1605632&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2654208&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4096000&lt;/span&gt;
 
 
 
@@ -168,7 +167,7 @@ df -h&lt;/em&gt;&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;to-mount-a-usb-drive&quot;&gt;To mount a USB drive:&lt;/h3&gt;
+&lt;h2 id=&quot;to-mount-a-usb-drive&quot;&gt;To mount a USB drive:&lt;/h2&gt;
 
 &lt;p&gt;Create the mount point:&lt;/p&gt;
 
@@ -176,7 +175,7 @@ df -h&lt;/em&gt;&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;now-connect-the-device-to-its-mount-point&quot;&gt;Now connect the device to its mount point:&lt;/h4&gt;
+&lt;h3 id=&quot;now-connect-the-device-to-its-mount-point&quot;&gt;Now connect the device to its mount point:&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mount&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/dev/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;da1&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/mnt/us&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bdrive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;\&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/mnt/us&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bdrive&lt;/span&gt;
@@ -198,7 +197,7 @@ tmpfs           5.0M  4.0K  5.0M   1% /&lt;/span&gt;&lt;span class=&quot;n&quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h4 id=&quot;now-we-need-to-make-sure-the-pi-user-owns-this-folder&quot;&gt;Now we need to make sure the Pi user owns this folder:&lt;/h4&gt;
+&lt;h3 id=&quot;now-we-need-to-make-sure-the-pi-user-owns-this-folder&quot;&gt;Now we need to make sure the Pi user owns this folder:&lt;/h3&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;R&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pi&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:pi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mnt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usbdrive&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;

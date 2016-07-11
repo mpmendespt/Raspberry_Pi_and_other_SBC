@@ -1,0 +1,72 @@
+---
+# Front matter comment to ensure Jekyll properly reads file.
+---
+@charset "utf-8";
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+$darkerGray: $grey-color-dark;
+
+
+/* Code */
+code,
+pre {
+  //font-family: Menlo, Monaco, "Courier New", monospace;
+}
+code {
+  //padding: .25em .5em;
+  //font-size: 85%;
+  //color: #bf616a;
+  background-color: #eef;  //// Test
+  //background-color: #f9f9f9;
+  border-radius: 3px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: .8rem;  ////  .8rem;
+  font-weight: bolder;
+  //font-weight: 600;
+  line-height: 1.5;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  //background-color: #f9f9f9;
+  background-color: #eef;
+}
+pre code {
+  padding: 0;
+  font-size: 100%;
+  color: inherit;
+  background-color: transparent;
+}
+
+
+
+ 
+
+
+
+
+
+
+
+/////////////////////
+//// Imports
+//@import "variables";
+////@import "base";
+////@import "type";
+////@import "typography";
+//@import "layout";
+
+//@import "primer-markdown/markdown-body.scss";
+//@import "primer-markdown/headings.scss";
+//@import "primer-markdown/lists.scss";
+////@import "primer-markdownb/tables.scss";
+//@import "primer-markdown/images.scss";
+////@import "primer-markdownb/code.scss";
