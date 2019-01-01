@@ -2,7 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://mpmendespt.ddns.net//Use-USB-drive-with-Raspberry-Pi.html/</loc>
+    <loc>http://localhost:4000/Use-USB-drive-with-Raspberry-Pi.html/</loc>
     
     <lastmod>2016-07-03T00:00:00+01:00</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://mpmendespt.ddns.net//Using-a-custom-domain-with-GitHub-Pages.html/</loc>
+    <loc>http://localhost:4000/Using-a-custom-domain-with-GitHub-Pages.html/</loc>
     
     <lastmod>2016-06-25T00:00:00+01:00</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://mpmendespt.ddns.net//Install-Arch-Linux-on-RaspberryPi.html/</loc>
+    <loc>http://localhost:4000/Install-Arch-Linux-on-RaspberryPi.html/</loc>
     
     <lastmod>2016-06-17T00:00:00+01:00</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://mpmendespt.ddns.net//Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/</loc>
+    <loc>http://localhost:4000/Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/</loc>
     
     <lastmod>2016-06-03T00:00:00+01:00</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://mpmendespt.ddns.net//From-Markdown-to-.odt-and-vice-versa.html/</loc>
+    <loc>http://localhost:4000/From-Markdown-to-.odt-and-vice-versa.html/</loc>
     
     <lastmod>2016-05-29T00:00:00+01:00</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://mpmendespt.ddns.net//GitHub-Pages-now-faster-and-simpler.html/</loc>
+    <loc>http://localhost:4000/GitHub-Pages-now-faster-and-simpler.html/</loc>
     
     <lastmod>2016-05-28T00:00:00+01:00</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://mpmendespt.ddns.net//whats-jekyll.html/</loc>
+    <loc>http://localhost:4000/whats-jekyll.html/</loc>
     
     <lastmod>2016-05-27T00:00:00+01:00</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>http://mpmendespt.ddns.net//welcome-to-jekyll.html/</loc>
+    <loc>http://localhost:4000/welcome-to-jekyll.html/</loc>
     
     <lastmod>2016-05-26T00:00:00+01:00</lastmod>
     
@@ -74,13 +74,15 @@
   </url>
   
   <url>
-    <loc>http://mpmendespt.ddns.net//Hello-World.html/</loc>
+    <loc>http://localhost:4000/Hello-World.html/</loc>
     
     <lastmod>2016-05-25T00:00:00+01:00</lastmod>
     
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  
+  
   
   
   

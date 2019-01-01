@@ -24,7 +24,7 @@
     <!-- Bootstrap -->
   <link rel="stylesheet" href="/public/css/bootstrap.min.css"> 
   <!-- CSS -->
-  <!-- <link rel="stylesheet" href="http://mpmendespt.ddns.net//public/css/bootstrap-social.css">    -->
+  <!-- <link rel="stylesheet" href="http://localhost:4000/public/css/bootstrap-social.css">    -->
   <link rel="stylesheet" href="/public/css/bootstrap-social.css">
   <!-- CSS -->
   <link rel="stylesheet" href="/public/css/poole.css">
@@ -57,7 +57,7 @@
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
     <p>Raspberry Pi and other Single-Board Computers...</p>
-	<!--   <img src="http://mpmendespt.ddns.net//images/eu_4.jpg" class="site-avatar">   -->
+	<!--   <img src="http://localhost:4000/images/eu_4.jpg" class="site-avatar">   -->
 	<a href="/" class="site-avatar"><img src="/images/eu_4.jpg" alt="Here I am ..." /></a>
   </div>
 
@@ -86,6 +86,8 @@
         
           <a class="sidebar-nav-item" href="/archive/">Archive</a>
         
+      
+    
       
     
       
@@ -124,8 +126,8 @@
 
   <div class="sidebar-item">
     <p>
-     <!--  &copy; 2016. All rights reserved.  -->
-	 2016
+     <!--  &copy; 2019. All rights reserved.  -->
+	 2019
     </p>
   </div>
 </div>
@@ -282,33 +284,28 @@ document, use the <strong>-s</strong> or <strong><em>–standalone</em></strong>
 
 <p>To convert from markdown to Word docx:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="no">S</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">docx</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="no">S</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">docx</span>
+</code></pre></div></div>
 
 <p>To convert from Word docx to markdown:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">f</span> <span class="n">docx</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="n">foo</span><span class="p">.</span><span class="nf">docx</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="p">.</span><span class="nf">markdown</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">f</span> <span class="n">docx</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="n">foo</span><span class="p">.</span><span class="nf">docx</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="p">.</span><span class="nf">markdown</span>
+</code></pre></div></div>
 
 <p>To convert markdown to PDF:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">pdf</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">pdf</span>
+</code></pre></div></div>
 
 <p><strong>To convert from .odt to markdown:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="n">file</span><span class="p">.</span><span class="nf">odt</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="o">-</span><span class="n">o</span> <span class="n">file</span><span class="p">.</span><span class="nf">md</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="n">file</span><span class="p">.</span><span class="nf">odt</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="o">-</span><span class="n">o</span> <span class="n">file</span><span class="p">.</span><span class="nf">md</span>
+</code></pre></div></div>
 
 <p><strong>To convert from markdown to .ODT (OpenDocument Text):</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">odt</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">odt</span>
+</code></pre></div></div>
 
 <p>See: *<a href="http://pandoc.org/demos.html"><em>http://pandoc.org/demos.html</em></a></p>
 
@@ -326,16 +323,16 @@ document, use the <strong>-s</strong> or <strong><em>–standalone</em></strong>
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>Here is a footnote. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>Here is a footnote. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:2">
-      <p>Here is a footnote. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>Here is a footnote. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:3">
-      <p>Here is a footnote. <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+      <p>Here is a footnote. <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:4">
-      <p>Here is a footnote. <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+      <p>Here is a footnote. <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -394,8 +391,10 @@ file. For example, if you previously had this:</p>
 <blockquote>
   <p><em>highlighter: pygments</em> <br />
 <em>markdown: redcarpet</em>  <br />
-<em>redcarpet:</em>  <br />
-&gt; <em>extensions: [“no_intra_emphasis”, “fenced_code_blocks”, “tables”, “with_toc_data”]</em></p>
+<em>redcarpet:</em></p>
+  <blockquote>
+    <p><em>extensions: [“no_intra_emphasis”, “fenced_code_blocks”, “tables”, “with_toc_data”]</em></p>
+  </blockquote>
 </blockquote>
 
 <p>Just change it to this:</p>
@@ -403,10 +402,12 @@ file. For example, if you previously had this:</p>
 <blockquote>
   <p><em>highlighter: rouge</em> <br />
 <em>markdown: kramdown</em>  <br />
-<em>kramdown:</em> <br />
-&gt; <em>input: GFM</em> <br />
+<em>kramdown:</em></p>
+  <blockquote>
+    <p><em>input: GFM</em> <br />
 <em>auto_ids: true</em>   <br />
 <em>syntax_highlighter: rouge</em></p>
+  </blockquote>
 </blockquote>
 
 <p>Make sure you specify the Github Flavored Markdown parser by adding
@@ -422,24 +423,22 @@ file. For example, if you previously had this:</p>
 
 <p>Output:</p>
 
-<figure class="highlight"><pre><code class="language-css" data-lang="css">   
-  <span class="nt">body</span> <span class="p">{</span>   
-   <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>   
-  <span class="p">}</span>    </code></pre></figure>
+<figure class="highlight"><pre><code class="language-css" data-lang="css">   <br data-jekyll-commonmark-ghpages="" />  <span class="nt">body</span> <span class="p">{</span>   <br data-jekyll-commonmark-ghpages="" />   <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>   <br data-jekyll-commonmark-ghpages="" />  <span class="p">}</span>    </code></pre></figure>
 
 <p><em>```css</em> <br />
-<em>body {</em> <br />
-* margin: 0;* <br />
+<em>body {</em></p>
+<ul>
+  <li>margin: 0;* <br />
 <em>}</em> <br />
-<em>```</em></p>
+<em>```</em></li>
+</ul>
 
 <p>Output:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>      
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>      
  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>      
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="references">References</h3>
 <ul>
@@ -491,31 +490,25 @@ file. For example, if you previously had this:</p>
 
 <h2 id="ruby-syntax">Ruby syntax</h2>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span><br data-jekyll-commonmark-ghpages="" />  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span><br data-jekyll-commonmark-ghpages="" /><span class="k">end</span><br data-jekyll-commonmark-ghpages="" /><span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages="" /><span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
 
 <h2 id="github-fenced-code-blocks">Github fenced code blocks</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
   <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
 <span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
 <span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="kramdown-tildes">Kramdown tildes</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
   <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
 <span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
 <span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
 

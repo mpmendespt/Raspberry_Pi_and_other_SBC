@@ -22,8 +22,10 @@ repository: mpmendespt/Raspberry_Pi_and_other_SBC
 #######################################
 #url: http://mpmendespt.github.io/
 #shorturl:  mpmendespt.github.io
-url:  http://mpmendespt.ddns.net/
-shorturl:  mpmendespt.ddns.net
+#url:  http://mpmendespt.ddns.net/
+#shorturl:  mpmendespt.ddns.net
+url:  http://mpmendespt.dynu.net/
+shorturl:  mpmendespt.dynu.net
 
 #
 baseurl:  ''
@@ -78,7 +80,9 @@ gems:  [jekyll-sitemap]
 #highlighter: pygments
 #highlighter: pygmentize
 #...........................
-highlighter: pygments
+##highlighter: pygments
+highlighter: rouge
+#.....................
 #markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "tables", "with_toc_data"]

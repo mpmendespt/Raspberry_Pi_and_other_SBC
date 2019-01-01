@@ -24,7 +24,7 @@
     <!-- Bootstrap -->
   <link rel="stylesheet" href="/public/css/bootstrap.min.css"> 
   <!-- CSS -->
-  <!-- <link rel="stylesheet" href="http://mpmendespt.ddns.net//public/css/bootstrap-social.css">    -->
+  <!-- <link rel="stylesheet" href="http://localhost:4000/public/css/bootstrap-social.css">    -->
   <link rel="stylesheet" href="/public/css/bootstrap-social.css">
   <!-- CSS -->
   <link rel="stylesheet" href="/public/css/poole.css">
@@ -57,7 +57,7 @@
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
     <p>Raspberry Pi and other Single-Board Computers...</p>
-	<!--   <img src="http://mpmendespt.ddns.net//images/eu_4.jpg" class="site-avatar">   -->
+	<!--   <img src="http://localhost:4000/images/eu_4.jpg" class="site-avatar">   -->
 	<a href="/" class="site-avatar"><img src="/images/eu_4.jpg" alt="Here I am ..." /></a>
   </div>
 
@@ -86,6 +86,8 @@
         
           <a class="sidebar-nav-item" href="/archive/">Archive</a>
         
+      
+    
       
     
       
@@ -124,8 +126,8 @@
 
   <div class="sidebar-item">
     <p>
-     <!--  &copy; 2016. All rights reserved.  -->
-	 2016
+     <!--  &copy; 2019. All rights reserved.  -->
+	 2019
     </p>
   </div>
 </div>
@@ -217,8 +219,10 @@ file. For example, if you previously had this:</p>
 <blockquote>
   <p><em>highlighter: pygments</em> <br />
 <em>markdown: redcarpet</em>  <br />
-<em>redcarpet:</em>  <br />
-&gt; <em>extensions: [“no_intra_emphasis”, “fenced_code_blocks”, “tables”, “with_toc_data”]</em></p>
+<em>redcarpet:</em></p>
+  <blockquote>
+    <p><em>extensions: [“no_intra_emphasis”, “fenced_code_blocks”, “tables”, “with_toc_data”]</em></p>
+  </blockquote>
 </blockquote>
 
 <p>Just change it to this:</p>
@@ -226,10 +230,12 @@ file. For example, if you previously had this:</p>
 <blockquote>
   <p><em>highlighter: rouge</em> <br />
 <em>markdown: kramdown</em>  <br />
-<em>kramdown:</em> <br />
-&gt; <em>input: GFM</em> <br />
+<em>kramdown:</em></p>
+  <blockquote>
+    <p><em>input: GFM</em> <br />
 <em>auto_ids: true</em>   <br />
 <em>syntax_highlighter: rouge</em></p>
+  </blockquote>
 </blockquote>
 
 <p>Make sure you specify the Github Flavored Markdown parser by adding
@@ -245,24 +251,22 @@ file. For example, if you previously had this:</p>
 
 <p>Output:</p>
 
-<figure class="highlight"><pre><code class="language-css" data-lang="css">   
-  <span class="nt">body</span> <span class="p">{</span>   
-   <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>   
-  <span class="p">}</span>    </code></pre></figure>
+<figure class="highlight"><pre><code class="language-css" data-lang="css">   <br data-jekyll-commonmark-ghpages="" />  <span class="nt">body</span> <span class="p">{</span>   <br data-jekyll-commonmark-ghpages="" />   <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>   <br data-jekyll-commonmark-ghpages="" />  <span class="p">}</span>    </code></pre></figure>
 
 <p><em>```css</em> <br />
-<em>body {</em> <br />
-* margin: 0;* <br />
+<em>body {</em></p>
+<ul>
+  <li>margin: 0;* <br />
 <em>}</em> <br />
-<em>```</em></p>
+<em>```</em></li>
+</ul>
 
 <p>Output:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>      
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">body</span> <span class="p">{</span>      
  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>      
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="references">References</h3>
 <ul>
@@ -274,7 +278,7 @@ file. For example, if you previously had this:</p>
 
   <!--  twitter  -->
   If you liked this post, you can
-<a href="https://twitter.com/intent/tweet?url=http://mpmendespt.ddns.net//GitHub-Pages-now-faster-and-simpler.html/&text=GitHub Pages now faster and simpler!&via=mpmendespt" 
+<a href="https://twitter.com/intent/tweet?url=http://localhost:4000/GitHub-Pages-now-faster-and-simpler.html/&text=GitHub Pages now faster and simpler!&via=mpmendespt" 
    target="_blank">
   share it with your followers</a> 
 or 

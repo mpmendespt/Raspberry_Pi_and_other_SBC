@@ -24,7 +24,7 @@
     <!-- Bootstrap -->
   <link rel="stylesheet" href="/public/css/bootstrap.min.css"> 
   <!-- CSS -->
-  <!-- <link rel="stylesheet" href="http://mpmendespt.ddns.net//public/css/bootstrap-social.css">    -->
+  <!-- <link rel="stylesheet" href="http://localhost:4000/public/css/bootstrap-social.css">    -->
   <link rel="stylesheet" href="/public/css/bootstrap-social.css">
   <!-- CSS -->
   <link rel="stylesheet" href="/public/css/poole.css">
@@ -57,7 +57,7 @@
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
     <p>Raspberry Pi and other Single-Board Computers...</p>
-	<!--   <img src="http://mpmendespt.ddns.net//images/eu_4.jpg" class="site-avatar">   -->
+	<!--   <img src="http://localhost:4000/images/eu_4.jpg" class="site-avatar">   -->
 	<a href="/" class="site-avatar"><img src="/images/eu_4.jpg" alt="Here I am ..." /></a>
   </div>
 
@@ -86,6 +86,8 @@
         
           <a class="sidebar-nav-item" href="/archive/">Archive</a>
         
+      
+    
       
     
       
@@ -124,8 +126,8 @@
 
   <div class="sidebar-item">
     <p>
-     <!--  &copy; 2016. All rights reserved.  -->
-	 2016
+     <!--  &copy; 2019. All rights reserved.  -->
+	 2019
     </p>
   </div>
 </div>
@@ -273,33 +275,28 @@ document, use the <strong>-s</strong> or <strong><em>–standalone</em></strong>
 
 <p>To convert from markdown to Word docx:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="no">S</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">docx</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="no">S</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">docx</span>
+</code></pre></div></div>
 
 <p>To convert from Word docx to markdown:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">f</span> <span class="n">docx</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="n">foo</span><span class="p">.</span><span class="nf">docx</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="p">.</span><span class="nf">markdown</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">f</span> <span class="n">docx</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="n">foo</span><span class="p">.</span><span class="nf">docx</span> <span class="o">-</span><span class="n">o</span> <span class="n">foo</span><span class="p">.</span><span class="nf">markdown</span>
+</code></pre></div></div>
 
 <p>To convert markdown to PDF:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">pdf</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">pdf</span>
+</code></pre></div></div>
 
 <p><strong>To convert from .odt to markdown:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="n">file</span><span class="p">.</span><span class="nf">odt</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="o">-</span><span class="n">o</span> <span class="n">file</span><span class="p">.</span><span class="nf">md</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pandoc</span> <span class="o">-</span><span class="n">s</span> <span class="n">file</span><span class="p">.</span><span class="nf">odt</span> <span class="o">-</span><span class="n">t</span> <span class="n">markdown</span> <span class="o">-</span><span class="n">o</span> <span class="n">file</span><span class="p">.</span><span class="nf">md</span>
+</code></pre></div></div>
 
 <p><strong>To convert from markdown to .ODT (OpenDocument Text):</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">odt</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pandoc</span> <span class="n">input</span><span class="p">.</span><span class="nf">md</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="p">.</span><span class="nf">odt</span>
+</code></pre></div></div>
 
 <p>See: *<a href="http://pandoc.org/demos.html"><em>http://pandoc.org/demos.html</em></a></p>
 
@@ -317,23 +314,23 @@ document, use the <strong>-s</strong> or <strong><em>–standalone</em></strong>
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p>Here is a footnote. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p>Here is a footnote. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:2">
-      <p>Here is a footnote. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+      <p>Here is a footnote. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:3">
-      <p>Here is a footnote. <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+      <p>Here is a footnote. <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
     </li>
     <li id="fn:4">
-      <p>Here is a footnote. <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+      <p>Here is a footnote. <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
 
   <!--  twitter  -->
   If you liked this post, you can
-<a href="https://twitter.com/intent/tweet?url=http://mpmendespt.ddns.net//From-Markdown-to-.odt-and-vice-versa.html/&text=From Markdown to .odt and vice-versa&via=mpmendespt" 
+<a href="https://twitter.com/intent/tweet?url=http://localhost:4000/From-Markdown-to-.odt-and-vice-versa.html/&text=From Markdown to .odt and vice-versa&via=mpmendespt" 
    target="_blank">
   share it with your followers</a> 
 or 

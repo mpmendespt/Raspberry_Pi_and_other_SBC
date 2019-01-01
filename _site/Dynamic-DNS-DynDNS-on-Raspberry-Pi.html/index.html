@@ -24,7 +24,7 @@
     <!-- Bootstrap -->
   <link rel="stylesheet" href="/public/css/bootstrap.min.css"> 
   <!-- CSS -->
-  <!-- <link rel="stylesheet" href="http://mpmendespt.ddns.net//public/css/bootstrap-social.css">    -->
+  <!-- <link rel="stylesheet" href="http://localhost:4000/public/css/bootstrap-social.css">    -->
   <link rel="stylesheet" href="/public/css/bootstrap-social.css">
   <!-- CSS -->
   <link rel="stylesheet" href="/public/css/poole.css">
@@ -57,7 +57,7 @@
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
     <p>Raspberry Pi and other Single-Board Computers...</p>
-	<!--   <img src="http://mpmendespt.ddns.net//images/eu_4.jpg" class="site-avatar">   -->
+	<!--   <img src="http://localhost:4000/images/eu_4.jpg" class="site-avatar">   -->
 	<a href="/" class="site-avatar"><img src="/images/eu_4.jpg" alt="Here I am ..." /></a>
   </div>
 
@@ -86,6 +86,8 @@
         
           <a class="sidebar-nav-item" href="/archive/">Archive</a>
         
+      
+    
       
     
       
@@ -124,8 +126,8 @@
 
   <div class="sidebar-item">
     <p>
-     <!--  &copy; 2016. All rights reserved.  -->
-	 2016
+     <!--  &copy; 2019. All rights reserved.  -->
+	 2019
     </p>
   </div>
 </div>
@@ -244,31 +246,26 @@ save it.</li>
 
 <p>Create a directory for the client software:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">mkdir</span> <span class="sr">/home/</span><span class="n">pi</span><span class="o">/</span><span class="n">noip</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mkdir</span> <span class="sr">/home/</span><span class="n">pi</span><span class="o">/</span><span class="n">noip</span>
+</code></pre></div></div>
 
 <p>Download the client software:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">wget</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="p">.</span><span class="nf">noip</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">client</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">noip</span><span class="o">-</span><span class="n">duc</span><span class="o">-</span><span class="n">linux</span><span class="p">.</span><span class="nf">tar</span><span class="p">.</span><span class="nf">gz</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wget</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="p">.</span><span class="nf">noip</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">client</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">noip</span><span class="o">-</span><span class="n">duc</span><span class="o">-</span><span class="n">linux</span><span class="p">.</span><span class="nf">tar</span><span class="p">.</span><span class="nf">gz</span>
+</code></pre></div></div>
 
 <p>Extract the archive:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">tar</span> <span class="n">zxvf</span> <span class="n">noip</span><span class="o">-</span><span class="n">duc</span><span class="o">-</span><span class="n">linux</span><span class="p">.</span><span class="nf">tar</span><span class="p">.</span><span class="nf">gz</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tar</span> <span class="n">zxvf</span> <span class="n">noip</span><span class="o">-</span><span class="n">duc</span><span class="o">-</span><span class="n">linux</span><span class="p">.</span><span class="nf">tar</span><span class="p">.</span><span class="nf">gz</span>
+</code></pre></div></div>
 
 <p>Compile and install:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">make</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">make</span>
+</code></pre></div></div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</code></pre></div></div>
 
 <p>After typing “sudo make install” you will be prompted to login with your
 No-IP account username and password.</p>
@@ -288,26 +285,23 @@ will be 5 minutes. If you choose 30 the interval will be 30 minutes.</p>
 
 <p>The Dynamic Update client is started by running:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo /usr/local/bin/noip2
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> /usr/local/bin/noip2
+</code></pre></div></div>
 
 <p>To confirm that the service is working properly you can run the
 following command:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo noip2 -S
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>noip2 <span class="nt">-S</span>
+</code></pre></div></div>
 
 <h3 id="to-start-the-client-when-the-system-reboots">To start the client when the system reboots.</h3>
 <p>We write a start up script:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">nano</span> <span class="sr">/etc/ini</span><span class="n">t</span><span class="p">.</span><span class="nf">d</span><span class="o">/</span><span class="n">noip2</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">nano</span> <span class="sr">/etc/ini</span><span class="n">t</span><span class="p">.</span><span class="nf">d</span><span class="o">/</span><span class="n">noip2</span>
+</code></pre></div></div>
 <p>with the following lines:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">#! /bin/sh</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#! /bin/sh</span>
 <span class="c1"># /etc/init.d/noip2</span>
 
 <span class="c1"># Supplied by no-ip.com</span>
@@ -358,15 +352,13 @@ following command:</p>
     <span class="nb">exit</span> <span class="mi">1</span>
 <span class="n">esac</span>
 <span class="nb">exit</span> <span class="mi">0</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Then give it executable permissions and update the rc.d scripts:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="sr">/etc/ini</span><span class="n">t</span><span class="p">.</span><span class="nf">d</span><span class="o">/</span><span class="n">noip2</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">chmod</span> <span class="o">+</span><span class="n">x</span> <span class="sr">/etc/ini</span><span class="n">t</span><span class="p">.</span><span class="nf">d</span><span class="o">/</span><span class="n">noip2</span>
 <span class="n">sudo</span> <span class="n">update</span><span class="o">-</span><span class="n">rc</span><span class="p">.</span><span class="nf">d</span> <span class="n">noip2</span> <span class="n">defaults</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Now it automatically update it’s ip on boot.</p>
 
@@ -383,7 +375,7 @@ following command:</p>
 
   <!--  twitter  -->
   If you liked this post, you can
-<a href="https://twitter.com/intent/tweet?url=http://mpmendespt.ddns.net//Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/&text=Dynamic DNS on Raspberry Pi&via=mpmendespt" 
+<a href="https://twitter.com/intent/tweet?url=http://localhost:4000/Dynamic-DNS-DynDNS-on-Raspberry-Pi.html/&text=Dynamic DNS on Raspberry Pi&via=mpmendespt" 
    target="_blank">
   share it with your followers</a> 
 or 

@@ -24,7 +24,7 @@
     <!-- Bootstrap -->
   <link rel="stylesheet" href="/public/css/bootstrap.min.css"> 
   <!-- CSS -->
-  <!-- <link rel="stylesheet" href="http://mpmendespt.ddns.net//public/css/bootstrap-social.css">    -->
+  <!-- <link rel="stylesheet" href="http://localhost:4000/public/css/bootstrap-social.css">    -->
   <link rel="stylesheet" href="/public/css/bootstrap-social.css">
   <!-- CSS -->
   <link rel="stylesheet" href="/public/css/poole.css">
@@ -57,7 +57,7 @@
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
     <p>Raspberry Pi and other Single-Board Computers...</p>
-	<!--   <img src="http://mpmendespt.ddns.net//images/eu_4.jpg" class="site-avatar">   -->
+	<!--   <img src="http://localhost:4000/images/eu_4.jpg" class="site-avatar">   -->
 	<a href="/" class="site-avatar"><img src="/images/eu_4.jpg" alt="Here I am ..." /></a>
   </div>
 
@@ -86,6 +86,8 @@
         
           <a class="sidebar-nav-item" href="/archive/">Archive</a>
         
+      
+    
       
     
       
@@ -124,8 +126,8 @@
 
   <div class="sidebar-item">
     <p>
-     <!--  &copy; 2016. All rights reserved.  -->
-	 2016
+     <!--  &copy; 2019. All rights reserved.  -->
+	 2019
     </p>
   </div>
 </div>
@@ -184,28 +186,25 @@ Linux (in my case another Raspberry with a USB Pen Drive):</p>
   <li>
     <p>Download the image for Raspberry Pi (ARM).</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">wget</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">archlinuxarm</span><span class="p">.</span><span class="nf">org</span><span class="o">/</span><span class="n">os</span><span class="o">/</span><span class="no">ArchLinuxARM</span><span class="o">-</span><span class="n">rpi</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">latest</span><span class="p">.</span><span class="nf">tar</span><span class="p">.</span><span class="nf">gz</span>
-</code></pre>
-    </div>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">wget</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">archlinuxarm</span><span class="p">.</span><span class="nf">org</span><span class="o">/</span><span class="n">os</span><span class="o">/</span><span class="no">ArchLinuxARM</span><span class="o">-</span><span class="n">rpi</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">latest</span><span class="p">.</span><span class="nf">tar</span><span class="p">.</span><span class="nf">gz</span>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Create a image file of 2GB:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">dd</span> <span class="k">if</span><span class="o">=</span><span class="sr">/dev/</span><span class="n">zero</span> <span class="n">of</span><span class="o">=</span><span class="n">arch</span><span class="p">.</span><span class="nf">img</span> <span class="n">bs</span><span class="o">=</span><span class="mi">1</span><span class="no">M</span> <span class="n">count</span><span class="o">=</span><span class="mi">1850</span>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dd</span> <span class="k">if</span><span class="o">=</span><span class="sr">/dev/</span><span class="n">zero</span> <span class="n">of</span><span class="o">=</span><span class="n">arch</span><span class="p">.</span><span class="nf">img</span> <span class="n">bs</span><span class="o">=</span><span class="mi">1</span><span class="no">M</span> <span class="n">count</span><span class="o">=</span><span class="mi">1850</span>
 
 <span class="n">count</span><span class="o">=</span><span class="mi">1850</span>   
 <span class="mi">1850</span><span class="o">+</span><span class="mi">0</span> <span class="n">records</span> <span class="k">in</span>   
 <span class="mi">1850</span><span class="o">+</span><span class="mi">0</span> <span class="n">records</span> <span class="n">out</span>   
-<span class="mi">1939865600</span> <span class="n">bytes</span> <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">9</span> <span class="no">GB</span><span class="p">,</span> <span class="mi">1</span><span class="o">.</span><span class="mi">8</span> <span class="no">GiB</span><span class="p">)</span> <span class="n">copied</span><span class="p">,</span> <span class="mi">53</span><span class="o">.</span><span class="mi">2323</span> <span class="n">s</span><span class="p">,</span> <span class="mi">36</span><span class="o">.</span><span class="mi">4</span> <span class="no">MB</span><span class="o">/</span><span class="n">s</span>
-</code></pre>
-    </div>
+<span class="mi">1939865600</span> <span class="n">bytes</span> <span class="p">(</span><span class="mf">1.9</span> <span class="no">GB</span><span class="p">,</span> <span class="mf">1.8</span> <span class="no">GiB</span><span class="p">)</span> <span class="n">copied</span><span class="p">,</span> <span class="mf">53.2323</span> <span class="n">s</span><span class="p">,</span> <span class="mf">36.4</span> <span class="no">MB</span><span class="o">/</span><span class="n">s</span>
+</code></pre></div>    </div>
   </li>
   <li>
     <p><a href="https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3">Partition the image file</a>:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">fdisk</span> <span class="n">arch</span><span class="p">.</span><span class="nf">img</span>
-</code></pre>
-    </div>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fdisk</span> <span class="n">arch</span><span class="p">.</span><span class="nf">img</span>
+</code></pre></div>    </div>
 
     <ol>
       <li>Type <strong>o</strong>. This will clear out any partitions on the drive.</li>
@@ -225,26 +224,24 @@ default first and last sector.</li>
   <li>
     <p>Check the partitions created:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">fdisk</span> <span class="o">-</span><span class="n">l</span> <span class="n">arch</span><span class="p">.</span><span class="nf">img</span>    
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fdisk</span> <span class="o">-</span><span class="n">l</span> <span class="n">arch</span><span class="p">.</span><span class="nf">img</span>    
 	
 <span class="no">Device</span> <span class="no">Boot</span> <span class="no">Start</span> <span class="no">End</span> <span class="no">Sectors</span> <span class="no">Size</span> <span class="no">Id</span> <span class="no">Type</span>   
 <span class="n">arch</span><span class="p">.</span><span class="nf">img1</span> <span class="mi">2048</span> <span class="mi">206847</span> <span class="mi">204800</span> <span class="mi">100</span><span class="no">M</span> <span class="n">c</span> <span class="no">W95</span> <span class="no">FAT32</span> <span class="p">(</span><span class="no">LBA</span><span class="p">)</span>    
-<span class="n">arch</span><span class="p">.</span><span class="nf">img2</span> <span class="mi">206848</span> <span class="mi">3788799</span> <span class="mi">3581952</span> <span class="mi">1</span><span class="o">.</span><span class="mi">7</span><span class="no">G</span> <span class="mi">83</span> <span class="no">Linux</span>
-</code></pre>
-    </div>
+<span class="n">arch</span><span class="p">.</span><span class="nf">img2</span> <span class="mi">206848</span> <span class="mi">3788799</span> <span class="mi">3581952</span> <span class="mf">1.7</span><span class="no">G</span> <span class="mi">83</span> <span class="no">Linux</span>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Mount the <strong>boot</strong> partition <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="p">((</span><span class="mi">2048</span> <span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">104857600</span>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="p">((</span><span class="mi">2048</span> <span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">104857600</span>
 <span class="n">arch</span><span class="p">.</span><span class="nf">img</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Mount the <strong>root</strong> partition:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="p">((</span><span class="mi">206848</span> <span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">1833959424</span>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="p">((</span><span class="mi">206848</span> <span class="o">*</span> <span class="mi">512</span><span class="p">))</span> <span class="o">--</span><span class="n">sizelimit</span> <span class="mi">1833959424</span>
 <span class="n">arch</span><span class="p">.</span><span class="nf">img</span>
 
 <span class="n">sudo</span> <span class="n">fdisk</span> <span class="o">-</span><span class="n">l</span> <span class="sr">/dev/</span><span class="n">loop0</span>
@@ -253,67 +250,60 @@ default first and last sector.</li>
 
 <span class="n">sudo</span> <span class="n">fdisk</span> <span class="o">-</span><span class="n">l</span> <span class="sr">/dev/</span><span class="n">loop1</span>    
 
-<span class="no">Disk</span> <span class="sr">/dev/</span><span class="ss">loop1: </span><span class="mi">1</span><span class="o">.</span><span class="mi">7</span> <span class="no">GiB</span><span class="p">,</span> <span class="mi">1833959424</span> <span class="n">bytes</span><span class="p">,</span> <span class="mi">3581952</span> <span class="n">sectors</span>
-</code></pre>
-    </div>
+<span class="no">Disk</span> <span class="sr">/dev/</span><span class="ss">loop1: </span><span class="mf">1.7</span> <span class="no">GiB</span><span class="p">,</span> <span class="mi">1833959424</span> <span class="n">bytes</span><span class="p">,</span> <span class="mi">3581952</span> <span class="n">sectors</span>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Format and mount <strong>boot</strong> partition</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">mkfs</span><span class="p">.</span><span class="nf">vfat</span> <span class="sr">/dev/</span><span class="n">loop0</span>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">mkfs</span><span class="p">.</span><span class="nf">vfat</span> <span class="sr">/dev/</span><span class="n">loop0</span>
 
 <span class="n">mkdir</span> <span class="n">boot</span>
 
 <span class="n">sudo</span> <span class="n">mount</span> <span class="sr">/dev/</span><span class="n">loop0</span> <span class="n">boot</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Format and mount <strong>root</strong> partition</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">mkfs</span><span class="p">.</span><span class="nf">ext4</span> <span class="sr">/dev/</span><span class="n">loop1</span>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">mkfs</span><span class="p">.</span><span class="nf">ext4</span> <span class="sr">/dev/</span><span class="n">loop1</span>
 
 <span class="n">mkdir</span> <span class="n">root</span>
 
 <span class="n">sudo</span> <span class="n">mount</span> <span class="sr">/dev/</span><span class="n">loop1</span> <span class="n">root</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Extract <strong>image</strong> files:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">bsdtar</span> <span class="o">-</span><span class="n">xpf</span> <span class="no">ArchLinuxARM</span><span class="o">-</span><span class="n">rpi</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">latest</span><span class="p">.</span><span class="nf">tar</span><span class="p">.</span><span class="nf">gz</span> <span class="o">-</span><span class="no">C</span> <span class="n">root</span>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">bsdtar</span> <span class="o">-</span><span class="n">xpf</span> <span class="no">ArchLinuxARM</span><span class="o">-</span><span class="n">rpi</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">latest</span><span class="p">.</span><span class="nf">tar</span><span class="p">.</span><span class="nf">gz</span> <span class="o">-</span><span class="no">C</span> <span class="n">root</span>
 
 <span class="n">sync</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Copy <strong>boot</strong> files:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">mv</span> <span class="n">root</span><span class="o">/</span><span class="n">boot</span><span class="o">/*</span> <span class="n">boot</span>   
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">mv</span> <span class="n">root</span><span class="o">/</span><span class="n">boot</span><span class="o">/*</span> <span class="n">boot</span>   
 
 <span class="n">sync</span>   
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Unmount partitions:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">umount</span> <span class="n">boot</span> <span class="n">root</span>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">umount</span> <span class="n">boot</span> <span class="n">root</span>
 
 <span class="n">rmdir</span> <span class="n">boot</span> <span class="n">root</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Detach partitions:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">d</span> <span class="sr">/dev/</span><span class="n">loop0</span>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">d</span> <span class="sr">/dev/</span><span class="n">loop0</span>
 
 <span class="n">sudo</span> <span class="n">losetup</span> <span class="o">-</span><span class="n">d</span> <span class="sr">/dev/</span><span class="n">loop1</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -321,9 +311,8 @@ default first and last sector.</li>
 
 <p>Now I copy it to my windows:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)"</span><span class="p">\</span><span class="no">PuTTY</span><span class="p">\</span><span class="n">pscp</span> <span class="n">pi</span><span class="err">@</span><span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">110</span><span class="ss">:/</span><span class="n">mnt</span><span class="o">/</span><span class="n">usbdrive</span><span class="o">/</span><span class="n">archlinux</span><span class="o">/</span><span class="n">arch</span><span class="p">.</span><span class="nf">img</span> <span class="s2">"C:</span><span class="se">\t</span><span class="s2">mp"</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"C:</span><span class="se">\P</span><span class="s2">rogram Files (x86)"</span><span class="p">\</span><span class="no">PuTTY</span><span class="p">\</span><span class="n">pscp</span> <span class="n">pi</span><span class="err">@</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.110</span><span class="ss">:/</span><span class="n">mnt</span><span class="o">/</span><span class="n">usbdrive</span><span class="o">/</span><span class="n">archlinux</span><span class="o">/</span><span class="n">arch</span><span class="p">.</span><span class="nf">img</span> <span class="s2">"C:</span><span class="se">\t</span><span class="s2">mp"</span>
+</code></pre></div></div>
 
 <p>Then we can write it on SD card with
 <a href="https://sourceforge.net/projects/win32diskimager/">Win32DiskImager</a>
@@ -349,14 +338,14 @@ power.</p>
 <div class="footnotes">
   <ol>
     <li id="fn:1">
-      <p><a href="https://unix.stackexchange.com/questions/72443/cannot-mount-img-file-not-a-directory-error/72449#72449">https://unix.stackexchange.com/questions/72443/cannot-mount-img-file-not-a-directory-error/72449#72449</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+      <p><a href="https://unix.stackexchange.com/questions/72443/cannot-mount-img-file-not-a-directory-error/72449#72449">https://unix.stackexchange.com/questions/72443/cannot-mount-img-file-not-a-directory-error/72449#72449</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
     </li>
   </ol>
 </div>
 
   <!--  twitter  -->
   If you liked this post, you can
-<a href="https://twitter.com/intent/tweet?url=http://mpmendespt.ddns.net//Install-Arch-Linux-on-RaspberryPi.html/&text=Install Arch Linux on Raspberry Pi&via=mpmendespt" 
+<a href="https://twitter.com/intent/tweet?url=http://localhost:4000/Install-Arch-Linux-on-RaspberryPi.html/&text=Install Arch Linux on Raspberry Pi&via=mpmendespt" 
    target="_blank">
   share it with your followers</a> 
 or 
