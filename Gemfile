@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 #source 'https://rails-assets.org'
 
-gem 'nokogiri', '~> 1.7.1'
+gem 'nokogiri', '~> 1.10.8'
 
 gem 'certified'
 
