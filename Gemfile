@@ -3,6 +3,11 @@ source 'https://rubygems.org'
 
 gem 'nokogiri', '~> 1.10.8'
 
+gem "jekyll", ">= 3.6.3"
+
+gem "rubyzip", ">= 1.3.0"
+
+
 gem 'certified'
 
 gem 'pygments.rb'
@@ -12,7 +17,7 @@ gem 'github-pages', group: :jekyll_plugins
 
 #gem 'github-pages'
 
-gem "jekyll" 
+##gem "jekyll" 
 
 gem 'jekyll-sitemap'
 #gem 'jekyll-github-metadata'
