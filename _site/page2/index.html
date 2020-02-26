@@ -126,8 +126,8 @@
 
   <div class="sidebar-item">
     <p>
-     <!--  &copy; 2019. All rights reserved.  -->
-	 2019
+     <!--  &copy; 2020. All rights reserved.  -->
+	 2020
     </p>
   </div>
 </div>
@@ -210,7 +210,7 @@ one.</p>
       <li>footnotes.</li>
     </ul>
   </li>
-  <li>Run   <strong><code class="highlighter-rouge">pandoc -s file.odt -t markdown -o file.md</code></strong></li>
+  <li>Run   <strong><code class="language-plaintext highlighter-rouge">pandoc -s file.odt -t markdown -o file.md</code></strong></li>
   <li>Edit the markdown <strong>file.md</strong> and correct every thing that seems wrong!!!
   There is some markdown editors, i like to use <a href="http://markdownpad.com/">MarkdownPad2</a>.</li>
 </ol>
@@ -423,7 +423,10 @@ file. For example, if you previously had this:</p>
 
 <p>Output:</p>
 
-<figure class="highlight"><pre><code class="language-css" data-lang="css">   <br data-jekyll-commonmark-ghpages="" />  <span class="nt">body</span> <span class="p">{</span>   <br data-jekyll-commonmark-ghpages="" />   <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>   <br data-jekyll-commonmark-ghpages="" />  <span class="p">}</span>    </code></pre></figure>
+<figure class="highlight"><pre><code class="language-css" data-lang="css">   
+  <span class="nt">body</span> <span class="p">{</span>   
+   <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>   
+  <span class="p">}</span>    </code></pre></figure>
 
 <p><em>```css</em> <br />
 <em>body {</em></p>
@@ -482,15 +485,19 @@ file. For example, if you previously had this:</p>
 
     <span class="post-date">26 May 2016</span>
 
-    <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+    <p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
 
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<p>To add new posts, simply add a file in the <code class="language-plaintext highlighter-rouge">_posts</code> directory that follows the convention <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
 
 <p>Jekyll also offers powerful support for code snippets:</p>
 
 <h2 id="ruby-syntax">Ruby syntax</h2>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span><br data-jekyll-commonmark-ghpages="" />  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span><br data-jekyll-commonmark-ghpages="" /><span class="k">end</span><br data-jekyll-commonmark-ghpages="" /><span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages="" /><span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
 
 <h2 id="github-fenced-code-blocks">Github fenced code blocks</h2>
 
