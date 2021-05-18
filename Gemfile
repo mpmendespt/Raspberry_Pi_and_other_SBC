@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 #source 'https://rails-assets.org'
 
-gem 'nokogiri', '~> 1.10.8'
+gem 'nokogiri', '~> 1.11.4'
 
 gem "jekyll", ">= 3.6.3"
 
